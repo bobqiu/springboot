@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>SearchUdata 1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/css/mail.css">
+
+    <link href="assets/js/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
+    <link href="assets/js/footable/css/footable.standalone.css" rel="stylesheet" type="text/css">
+    <link href="assets/js/footable/css/footable-demos.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/js/dataTable/lib/jquery.dataTables/css/DT_bootstrap.css">
+    <link rel="stylesheet" href="assets/js/dataTable/css/datatables.responsive.css">
+
+    <link href="assets/js/iCheck/flat/all.css" rel="stylesheet">
+    <link href="assets/js/iCheck/line/all.css" rel="stylesheet">
+
+    <link href="assets/js/colorPicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="assets/js/switch/bootstrap-switch.css" rel="stylesheet">
+    <link href="assets/js/validate/validate.css" rel="stylesheet">
+    <link href="assets/js/idealform/css/jquery.idealforms.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="dist/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="dist/css/bootstrap-slider.min.css">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+</head>
+
+<body>
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <td colspan="2">
+            To Be Containered:
+        </td>
+        <td>
+            <table>
+                <tr>
+                    <td>Container #</td>
+                    <td>Size</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Editor(@"InternalContainerNoEdit")
+                    </td>
+                    <td>
+                        @Html.Editor(@"SizeEdit");
+                    </td>
+                </tr>
+            </table>
+
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="table" id="table-methods-table-left">
+                <thead>
+                <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="PONo">
+                        PO #
+                    </th>
+                    <th data-field="SKUNo">
+                        SKU #
+                    </th>
+                    <th data-field="Factory">
+                        Factory
+                    </th>
+                    <th data-field="ReadyDate">
+                        Ready Date
+                    </th>
+                    <th data-field="Pallets">
+                        Pallets
+                    </th>
+                </tr>
+                </thead>
+
+            </table>
+        </td>
+        <td valign="middle">
+
+            <button class="btn btn-primary btn-large btn-block" type="button" id="btn2Right" data-method="append">-->
+            </button>
+            <button id="btn2Left" class="btn btn-info btn-large btn-block" type="button"><---</button>
+
+        </td>
+        <td>
+            <table class="table" id="table-methods-table-right">
+                <thead>
+                <tr>
+                    <th data-field="state" data-checkbox="true"></th>
+                    <th data-field="PONo">
+                        PO #
+                    </th>
+                    <th data-field="SKUNo">
+                        SKU #
+                    </th>
+                    <th data-field="Factory">
+                        Factory
+                    </th>
+                    <th data-field="ReadyDate">
+                        Ready Date
+                    </th>
+                    <th data-field="Pallets">
+                        Pallets
+                    </th>
+                </tr>
+                </thead>
+
+            </table>
+        </td>
+    </tr>
+    <tr>
+
+        <td colspan="3" align="right">
+            <button class="btn btn-primary btn-large btn-block" type="button" id="btnOk">OK</button>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div>
+    <input id="ex6" type="text" data-slider-min="-5" data-slider-max="20" data-slider-step="1" data-slider-value="3"/>
+    <span id="ex6CurrentSliderValLabel">扩展倍数: <span id="ex6SliderVal">3</span></span>
+</div>
+<br>
+
+
+<!-- MAIN EFFECT -->
+<script type="text/javascript" src="assets/js/preloader.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/load.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+<script type="text/javascript" src="assets/js/iCheck/jquery.icheck.js"></script>
+<script type="text/javascript" src="assets/js/switch/bootstrap-switch.js"></script>
+
+
+<!-- /MAIN EFFECT -->
+<!-- GAGE -->
+<script type="text/javascript" src="assets/js/toggle_close.js"></script>
+<script src="assets/js/footable/js/footable.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="dist/bootstrap-slider.js"></script>
+<script type="text/javascript" src="dist/bootstrap-slider.min.js"></script>
+
+<script type="text/javascript">
+    $tableLeft = $('#table-methods-table-left').bootstrapTable({
+
+        url: '/Containers/getPoItems/' + selectedTypeID
+    });
+
+    $tableRight = $('#table-methods-table-right').bootstrapTable();
+
+    $('#btn2Right').click(function () {
+        var selectContent = $tableLeft.bootstrapTable('getSelections');
+        $tableRight.bootstrapTable("append", selectContent);
+        var selects = $tableLeft.bootstrapTable('getSelections');
+        SKUNo = $.map(selects, function (row) {
+            return row.SKUNo;
+        });
+
+        $tableLeft.bootstrapTable('remove', {
+            field: 'SKUNo',
+            values: SKUNo
+        });
+
+    });
+    $('#btn2Left').click(function () {
+        var selectContent = $tableRight.bootstrapTable('getSelections');
+        $tableLeft.bootstrapTable("append", selectContent);
+        var selects = $tableRight.bootstrapTable('getSelections');
+        SKUNo = $.map(selects, function (row) {
+            return row.SKUNo;
+        });
+        $tableRight.bootstrapTable('remove', {
+            field: 'SKUNo',
+            values: SKUNo
+        });
+    });
+    }
+
+</script>
+<script type="text/javascript">
+    //实现滑动条
+    $("#ex6").slider();
+    $("#ex6").on("slide", function (slideEvt) {
+        $("#ex6SliderVal").text(slideEvt.value);
+    });
+
+    // Without JQuery
+    var slider = new Slider("#ex6");
+    slider.on("slide", function (slideEvt) {
+        $("#ex6SliderVal").text(slideEvt.value);
+    });
+    )
+</script>
+</body>
+</html>
+
+  

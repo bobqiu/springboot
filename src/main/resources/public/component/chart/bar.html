@@ -1,0 +1,141 @@
+<div class="col-sm-6">
+    <div class="nest" id="headerClose">
+        <div class="title-alt">
+            <h6>
+                分级用户收入分布</h6>
+            <div class="titleClose">
+                <a class="gone" href="#headerClose">
+                    <span class="entypo-cancel"></span>
+                </a>
+            </div>
+            <div class="titleToggle">
+                <a class="nav-toggle-alt" href="#header">
+                    <span class="entypo-up-open"></span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="body-nest" id="header" style="height:100%; width:100%;">
+
+            <div id="container_#instanceId#" style="height: 400px; width:480px;"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var dom_
+    #
+    instanceId
+    #
+    = document.getElementById("container_#instanceId#");
+    var myChart_
+    #
+    instanceId
+    #
+    = echarts.init(dom_
+    #
+    instanceId
+    #)
+    ;
+    var app_
+    #
+    instanceId
+    #
+    = {};
+    var option_
+    #
+    instanceId
+    #
+    = null;
+    // app_#instanceId#.title = '正负条形图';
+    option_
+    #
+    instanceId
+    #
+    = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        yAxis: [
+            {
+                type: 'category',
+                axisTick: {show: false},
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+            }
+        ]
+    };
+    if (option_#
+    instanceId
+    # &&
+    typeof option_
+    #
+    instanceId
+    # ===
+    "object"
+    )
+    {
+        myChart_#instanceId#.
+        setOption(option_#instanceId#,
+        true
+    )
+        ;
+        getChartData_#instanceId#();
+    }
+    function getChartData_
+    #
+    instanceId
+    #
+    ()
+    {
+
+        $.ajax({
+            type: "post",
+            async: false,
+            url: "http://localhost:8080/echart/data",
+            data: {},
+            dataType: "json",
+            success: function (result) {
+                if (result) {
+                    /*  alert(JSON.stringify(result));
+                     alert(result.legend);
+                     alert(result.title);*/
+                    myChart_11.setOption({
+                        title: {
+                            text: result.title
+                        },
+                        legend: {
+                            data: result.legend
+                        },
+                        yAxis: [
+                            {
+                                type: 'category',
+                                axisTick: {show: false},
+                                data: result.category
+                            }
+                        ],
+                        series: result.series
+                    });
+                }
+            },
+            error: function (errorMsg) {
+                alert("error:" + errorMsg);
+            }
+        });
+
+        // alert("getChartData");
+    }
+</script>

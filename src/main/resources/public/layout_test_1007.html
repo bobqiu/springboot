@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <title>Layout</title>
+    <!-- <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
+           href="assets/css/bootstrap.css" />-->
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/extra-pages.css">
+
+    <script type="text/javascript" src="assets/js/preloader.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+
+
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+
+
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="echarts.js"></script>
+    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript" src="echarts-all-3.js"></script>
+
+
+</head>
+<body>
+<div class="container">
+    222222测试
+    <h1 layout:fragment="header">Layout</h1>
+
+    <p th:text="${name}">11111</p>
+    <div layout:fragment="content">Fake content</div>
+</div>
+<p>开始</p>
+<div layout:fragment="content_mark1" th:remove="tag">
+
+
+    <h1 th:text="${name}">11111</h1>
+</div>
+<div layout:fragment="content_mark2" th:remove="tag">
+
+</div>
+<div layout:fragment="content_mark3" th:remove="tag">
+
+</div>
+<p>结束</p>
+<!--<div th:each="mark:${marks}">
+    <p th:text="${mark}"></p>
+    <div layout:fragment="${mark}">Fake content</div>
+</div>-->
+</body>
+</html>

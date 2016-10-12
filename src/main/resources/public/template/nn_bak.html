@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{layout_test}">
+<div layout:fragment="content_mark1">
+
+    <div id="container_11" style="height: 400px; width:500px;"></div>
+    <script type="text/javascript">
+        var dom_11 = document.getElementById("container_11");
+        var myChart_11 = echarts.init(dom_11);
+        var app_11 = {};
+        var option_11 = null;
+        // app_11.title = '正负条形图';
+        option_11 = {
+            title: {
+                text: '正负条形图1'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['利润', '支出', '收入']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'category',
+                    axisTick: {show: false},
+                    data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                }
+            ],
+            series: [
+                {
+                    name: '利润',
+                    type: 'bar',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'inside'
+                        }
+                    },
+                    data: [200, 170, 240, 244, 200, 220, 210]
+                },
+                {
+                    name: '收入',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true
+                        }
+                    },
+                    data: [320, 302, 341, 374, 390, 450, 420]
+                },
+                {
+                    name: '支出',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'left'
+                        }
+                    },
+                    data: [-120, -132, -101, -134, -190, -230, -210]
+                }
+            ]
+        };
+        if (option_11 && typeof option_11 === "object") {
+            myChart_11.setOption(option_11, true);
+        }
+    </script>
+</div>
+</html>

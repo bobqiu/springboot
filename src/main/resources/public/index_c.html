@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<h1 th:text="${host}">Hello World</h1>
+<table>
+    <thead>
+    <tr>
+        <th colspan="1" rowspan="1">NAME</th>
+        <th colspan="1" rowspan="1">PRICE</th>
+        <th colspan="1" rowspan="1">IN STOCK</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="brand : ${brands}">
+        <td colspan="1" rowspan="1" th:text="${brand.ename}">Fresh Sweet Basil</td>
+        <td colspan="1" rowspan="1" th:text="${brand.source}">4.99</td>
+        <td colspan="1" rowspan="1">yes</td>
+    </tr>
+    <tr>
+        <td colspan="1" rowspan="1">Fresh Sweet Basil</td>
+        <td colspan="1" rowspan="1">4.99</td>
+        <td colspan="1" rowspan="1">yes</td>
+    </tr>
+    <tr class="odd">
+        <td colspan="1" rowspan="1">Italian Tomato</td>
+        <td colspan="1" rowspan="1">1.25</td>
+        <td colspan="1" rowspan="1">no</td>
+    </tr>
+    <tr>
+        <td colspan="1" rowspan="1">Yellow Bell Pepper</td>
+        <td colspan="1" rowspan="1">2.50</td>
+        <td colspan="1" rowspan="1">yes</td>
+    </tr>
+    <tr class="odd">
+        <td colspan="1" rowspan="1">Old Cheddar</td>
+        <td colspan="1" rowspan="1">18.75</td>
+        <td colspan="1" rowspan="1">yes</td>
+    </tr>
+    </tbody>
+</table>
+<form action="#" th:action="@{/test}" th:object="${brand}" method="post">
+    <label>Title</label>
+    <input type="text" th:field="*{ename}"/>
+    <label>Text</label>
+    <input type="text" th:field="*{source}"/>
+    <br/>
+    <input type="submit" value="Add"/>
+</form>
+</body>
+</html>

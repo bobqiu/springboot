@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{layout_test}">
+<div layout:fragment="header">
+    xxxx
+</div>
+<!--<div layout:fragment="header1">
+    xxxxtest1
+</div>-->
+<div layout:fragment="content">
+
+    qqqqqqqqqqqqqqqqqqqqq测试
+    <h1 th:text="${name}">11111</h1>
+</div>
+<div layout:fragment="content_mark1">
+
+    qqqqqqqqqqqqqqqqqqqqq测试
+    <h1 th:text="${name}">11111</h1>
+    <p>明天放假</p>
+</div>
+<!--<div layout:fragment="content_mark2">
+
+    qqqqqqqqqqqqqqqqqqqqq测试
+    <h1 th:text="${name}">11111</h1>
+</div>
+<div layout:fragment="content_mark3">
+
+    qqqqqqqqqqqqqqqqqqqqq测试
+    <h1 th:text="${name}">11111</h1>
+</div>-->
+<div>
+    <p>开始</p>
+    <h1 th:text="${name}">11111</h1>
+</div>
+</html>

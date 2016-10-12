@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+       default-lazy-init="false">
+
+    <dubbo:application name="dubbo-provider-dsp"/>
+    <dubbo:annotation package="com.qiu.*"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:registry address="multicast://224.5.6.7:1234" check="false" subscribe="false" register=""/>
+    <dubbo:service interface="com.qiu.dmp.service.UserService" ref="userService" protocol="dubbo"/>
+    <bean name="userService" class="com.qiu.dmp.service.impl.UserServiceImpl"/>
+
+    <dubbo:protocol name="rest" port="8088" server="tomcat"/>
+    <dubbo:service interface="com.qiu.dmp.service.RsUserService" ref="rsUserService"/>
+    <bean id="rsUserService" class="com.qiu.dmp.service.impl.RsUserServiceImpl"/>
+
+
+</beans>

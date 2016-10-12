@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>SearchUdata 1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <link type="text/css" href="css/style.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/css/mail.css">
+
+    <link href="assets/js/footable/css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css">
+    <link href="assets/js/footable/css/footable.standalone.css" rel="stylesheet" type="text/css">
+    <link href="assets/js/footable/css/footable-demos.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="assets/js/dataTable/lib/jquery.dataTables/css/DT_bootstrap.css">
+    <link rel="stylesheet" href="assets/js/dataTable/css/datatables.responsive.css">
+
+    <link href="assets/js/iCheck/flat/all.css" rel="stylesheet">
+    <link href="assets/js/iCheck/line/all.css" rel="stylesheet">
+
+    <link href="assets/js/colorPicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="assets/js/switch/bootstrap-switch.css" rel="stylesheet">
+    <link href="assets/js/validate/validate.css" rel="stylesheet">
+    <link href="assets/js/idealform/css/jquery.idealforms.css" rel="stylesheet">
+
+    <link href="assets/js/colorPicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <link href="assets/js/validate/validate.css" rel="stylesheet">
+    <link href="assets/js/idealform/css/jquery.idealforms.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/js/timepicker/bootstrap-timepicker.css">
+    <link rel="stylesheet" href="assets/js/datepicker/datepicker.css">
+    <link rel="stylesheet" href="assets/js/datepicker/clockface.css">
+    <link rel="stylesheet" href="assets/js/datepicker/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="dist/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="dist/css/bootstrap-slider.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="assets/js/tag/jquery.tagsinput.css">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+
+    <style>
+        .d_b {
+            height: 20px;
+            width: 10px;
+            display: inline-block;
+            background-color: black;
+            position: relative;
+            vertical-align: middle;
+            top: -15px;
+            left: -5px;
+        }
+    </style>
+
+</head>
+
+<body>
+<!--div id="awwwards" class="right black"><a href="tree.html" target="_blank">best websites of the world</a></div>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<!-- TOP NAVBAR -->
+<nav role="navigation" class="navbar navbar-static-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle"
+                    type="button">
+                <span class="entypo-menu"></span>
+            </button>
+            <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
+                <span class="entypo-list-add"></span>
+            </button>
+
+
+            <div id="logo-mobile" class="visible-xs">
+                <h1>SearchUdata<span>v1.0</span></h1>
+            </div>
+
+        </div>
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:20px;"
+                                                                                  class="icon-conversation"></i>
+                        <div class="noft-red">23</div>
+                    </a>
+
+
+                    <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/1.jpg">李常在 <b>Just Now</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/women/1.jpg">邱波 <b>3 Min Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/2.jpg">赵新志 <b>2 Hours Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/3.jpg"><i>龙通彬</i> <b>1 Day
+                                Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/4.jpg"><i>张阳</i> <b>2 Mounth
+                                Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>查看所有消息</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:19px;"
+                                                                                  class="icon-warning tooltitle"></i>
+                        <div class="noft-green">5</div>
+                    </a>
+                    <ul style="margin: 12px 0 0 0;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <span style="background:#DF2135" class="noft-icon maki-bus"></span><i>From Station</i>
+                                <b>01B</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#AB6DB0" class="noft-icon maki-ferry"></span><i>Departing at</i>
+                                <b>9:00 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#FFA200" class="noft-icon maki-aboveground-rail"></span><i>Delay
+                                for</i> <b>09 Min</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#86C440" class="noft-icon maki-airport"></span><i>Take of</i>
+                                <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#0DB8DF" class="noft-icon maki-bicycle"></span><i>Take of</i>
+                                <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>查看所有通知</div>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;"
+                                   class="icon-help tooltitle"></i></a>
+                </li>
+
+            </ul>
+            <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                <ul class="date-top">
+                    <li class="entypo-calendar" style="margin-right:5px"></li>
+                    <li id="Date"></li>
+
+
+                </ul>
+
+                <ul id="digital-clock" class="digital">
+                    <li class="entypo-clock" style="margin-right:5px"></li>
+                    <li class="hour"></li>
+                    <li>:</li>
+                    <li class="min"></li>
+                    <li>:</li>
+                    <li class="sec"></li>
+                    <li class="meridiem"></li>
+                </ul>
+                <ul id="nt-title">
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;北京&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;上海&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; Tonight- 72 °F (22.2 °C)
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;广州&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;深圳&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Frankurt&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                </ul>
+            </div>
+
+            <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" class="admin-pic img-circle" src="lander.jpg">Hi, zhouchong <b class="caret"></b>
+                    </a>
+                    <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                        <li>
+                            <a href="#">
+                                <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="entypo-vcard"></span>&#160;&#160;Account Setting</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="entypo-lifebuoy"></span>&#160;&#160;Help</a>
+                        </li>
+                        <li class="divider"></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="icon-gear"></span>&#160;&#160;Setting</a>
+                    <ul role="menu" class="dropdown-setting dropdown-menu">
+
+                        <li class="theme-bg">
+                            <div id="button-bg"></div>
+                            <div id="button-bg2"></div>
+                            <div id="button-bg3"></div>
+                            <div id="button-bg5"></div>
+                            <div id="button-bg6"></div>
+                            <div id="button-bg7"></div>
+                            <div id="button-bg8"></div>
+                            <div id="button-bg9"></div>
+                            <div id="button-bg10"></div>
+                            <div id="button-bg11"></div>
+                            <div id="button-bg12"></div>
+                            <div id="button-bg13"></div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="hidden-xs">
+                    <a class="toggle-left" href="#">
+                        <span style="font-size:20px;" class="entypo-list-add"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- /END OF TOP NAVBAR -->
+
+<!-- SIDE MENU -->
+<div id="skin-select">
+    <div id="logo">
+        <h1>SUdata DMP<span>v1.0</span></h1>
+    </div>
+
+    <a id="toggle">
+        <span class="entypo-menu"></span>
+    </a>
+    <div class="dark">
+        <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search"
+                           placeholder="Search Menu..." autofocus="">
+                </span>
+        </form>
+    </div>
+
+    <div class="search-hover">
+        <form id="demo-2">
+            <input type="search" placeholder="Search Menu..." class="id_search">
+        </form>
+    </div>
+
+    <div class="skin-part">
+        <div id="tree-wrap">
+            <div class="side-bar">
+                <ul class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="widget-menu"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="#" title="标签管理">
+                            <i class="icon-document-edit"></i>
+                            <span>标签聚类</span>
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="marketing.html" title="营销人群管理"><i
+                                        class="entypo-doc-text"></i><span>营销人群管理</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="newmarketing.html" title="新建营销人群"><i
+                                        class="entypo-newspaper"></i><span>新建营销人群</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="profile_test.html" title="个人标签">
+                            <i class="icon-feed"></i>
+                            <span>个人标签</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="tagput.html" title="标签扩展">
+                            <i class="icon-camera"></i>
+                            <span>标签扩展</span>
+
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="design-kit"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="test.html" title="应用分析仪表盘">
+                            <i class="icon-window"></i>
+                            <span>应用分析仪表盘</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="mail.html" title="关键字搜索分析">
+                            <i class="icon-mail"></i>
+                            <span>关键字搜索分析</span>
+                            <div class="noft-blue">289</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="action.html" title="行为分析">
+                            <i class="icon-preview"></i>
+                            <span>行为分析</span>
+                            <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip" href="#" title="航旅数据分析">
+                            <i class="icon-document-new"></i>
+                            <span>航旅数据分析</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="hotel_test.html" title="酒店业务分析"><i
+                                        class="icon icon-home"></i><span>酒店业务分析</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店潜客预测模型"><i
+                                        class="icon icon-user-group"></i><span>酒店潜客预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="icon icon-graph-line"></i><span>酒店价格预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="icon icon-retweet"></i><span>酒店成本收益预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="air_test.html" title="机票业务分析"><i
+                                        class="icon-user"></i><span>机票业务分析</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店潜客预测模型"><i
+                                        class="fontawesome-group"></i><span>机票潜客预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="fontawesome-strikethrough"></i><span>机票价格预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="fontawesome-fighter-jet"></i><span>机票成本收益预测模型</span></a>
+                            </li>
+
+                            <li>
+                                <a class="tooltip-tip2" href="lock-screen.html" title="Lock Screen"><i
+                                        class="icon-lock"></i><span>登入锁定</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip " href="login.html" title="用户登入">
+                            <i class="icon-download"></i>
+                            <span>用户登入</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <ul id="menu-showhide" class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="component"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a class="tooltip-tip" href="#" title="数据资产">
+                            <i class="icon-monitor"></i>
+                            <span>数据资产</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="element.html" title="Element"><i
+                                        class="icon-attachment"></i><span>第一方数据</span></a>
+                            </li>
+                            <li><a class="tooltip-tip2 ajax-load" href="button.html" title="Button"><i
+                                    class="icon-view-list-large"></i><span>第二方数据</span>
+                                <div class="noft-blue-number">10</div>
+                            </a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="wizard.html" title="Tab & Accordion"><i
+                                        class="icon-folder"></i><span>第三方数据</span>
+                                    <div class="noft-purple-number">3</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="数据来源">
+                            <i class="icon-document"></i>
+                            <span>数据来源</span>
+                        </a>
+                        <ul>
+
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="file-upload.html" title="File Upload"><i
+                                        class="icon-upload"></i><span>文件上传</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="Text Editor"><i
+                                        class="icon-code"></i><span>数据工厂</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="Text Editor"><i
+                                        class="icon-document-edit"></i><span>数据探索</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="数据列表">
+                            <i class="icon-view-thumb"></i>
+                            <span>数据列表</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="table-static.html" title="Table Static"><i
+                                        class="entypo-layout"></i><span>静态数据表</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="table-dynamic.html" title="Table Dynamic"><i
+                                        class="entypo-menu"></i><span>动态数据表</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="newmap.html" title="GIS数据">
+                            <i class="icon-location"></i>
+                            <span>GIS数据</span>
+
+                        </a>
+                    </li>
+                </ul>
+
+
+                <div class="side-dash">
+                    <h3>
+                        <span>数据处理量</span>
+                    </h3>
+                    <ul class="side-dashh-list">
+                        <li>平均量
+                                <span>25k<i style="color:#44BBC1;" class="fa fa-arrow-circle-up"></i>
+                                </span>
+                        </li>
+                        <li>访问量
+                                <span>80%<i style="color:#AB6DB0;" class="fa fa-arrow-circle-down"></i>
+                                </span>
+                        </li>
+                        <li>覆盖率
+                                <span>13m<i style="color:#19A1F9;" class="fa fa-arrow-circle-up"></i>
+                                </span>
+                        </li>
+                    </ul>
+                    <h3>
+                        <span>数据处理图</span>
+                    </h3>
+                    <ul class="side-bar-list">
+                        <li>平均量
+                            <div class="linebar">5,7,8,9,3,5,3,8,5</div>
+                        </li>
+                        <li>访问量
+                            <div class="linebar2">9,7,8,9,5,9,6,8,7</div>
+                        </li>
+                        <li>覆盖率
+                            <div class="linebar3">5,7,8,9,3,5,3,8,5</div>
+                        </li>
+                    </ul>
+                    <h3>
+                        <span>实时访问量</span>
+                    </h3>
+                    <div id="g1" style="height:180px" class="gauge"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF SIDE MENU -->
+
+
+<!--  PAPER WRAP -->
+<div class="wrap-fluid">
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <!-- CONTENT -->
+        <!--TITLE -->
+        <div class="row">
+            <div id="paper-top">
+                <div class="col-sm-3">
+                    <h2 class="tittle-content-header">
+                        <i class="icon-view-list"></i>
+                            <span>新建营销人群
+                            </span>
+                    </h2>
+
+                </div>
+
+                <div class="col-sm-7">
+                    <div class="devider-vertical visible-lg"></div>
+                    <div class="tittle-middle-header">
+
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <span class="tittle-alert entypo-info-circled"></span>
+                            欢迎回来,&nbsp;
+                            <strong>周翀!</strong>&nbsp;&nbsp;你最近登入的时间是 昨天下午, 16:54 PM
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--/ TITLE -->
+
+        <!-- BREADCRUMB -->
+        <ul id="breadcrumb">
+            <li>
+                <span class="entypo-home"></span>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1">标签聚类</a>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1">新建营销人群</a>
+            </li>
+            <li class="pull-right">
+                <div class="input-group input-widget">
+
+                    <input class="form-control" id="filter" style="border-radius:15px" type="text"
+                           placeholder="查询标签内容..." class="form-control">
+
+
+                </div>
+            </li>
+        </ul>
+
+
+        <!-- END OF BREADCRUMB -->
+
+
+        <div class="content-wrap">
+
+            <div class="row">
+
+
+                <div class="col-sm-12">
+
+                    <div class="nest" id="FootableClose">
+                        <div class="title-alt">
+                            <h6>
+                                新建营销人群</h6> <h6>全部标签</h6>
+                            <div class="titleClose">
+                                <a class="gone" href="#FootableClose">
+                                    <span class="entypo-cancel"></span>
+                                </a>
+                            </div>
+                            <div class="titleToggle">
+                                <a class="nav-toggle-alt" href="#Footable">
+                                    <span class="entypo-up-open"></span>
+                                </a>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="collapase navbar-collapse" id="menu">
+
+
+                            <ul class="nav navbar-nav">
+                                <!--li class="active"><a href="#" ><font size="+1" color="#bbb">营销人群管理</font></a></li-->
+
+                                <li class="dropdown">
+
+                                    <a href="#" data-toggle="dropdown" role="button">
+                                        <span class="entypo-users" style="color:green"></span>
+                                        <font size="+1" color="#bbb">标签类型</font>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header"><H5>标签选择</H5></li>
+                                        <li><a href="#">全部标签</a></li>
+                                        <li><a href="#">推荐标签</a></li>
+                                        <li><a href="#">最新标签</a></li>
+                                        <li><a href="#">收藏标签</a></li>
+                                        <li role="separetor" class="divider"></li>
+                                        <li class="dropdown-header"><H5>系统功能</H5></li>
+                                        <li><a href="#">设置</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" role="button">
+                                        <span class="maki-pitch" style="color:green"></span>
+                                        <font size="+1" color="#bbb">活动标签</font>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header"><H5>第三方推荐</H5></li>
+                                        <li><a href="#">行业人群</a></li>
+                                        <li><a href="#">当日入住</a></li>
+                                        <li><a href="#">当日起飞</a></li>
+                                        <li role="separetor" class="divider"></li>
+                                        <li class="dropdown-header"><H5>系统功能</H5></li>
+                                        <li><a href="#">设置</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" role="button">
+                                        <span class="entypo-user" style="color:green"></span>
+                                        <font size="+1" color="#bbb">基本信息</font>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header"><H5>人口信息</H5></li>
+                                        <li><a href="#">人口属性</a></li>
+                                        <li><a href="#">资产信息</a></li>
+                                        <li><a href="#">设备属性</a></li>
+                                        <li><a href="#">应用兴趣</a></li>
+                                        <li><a href="#">人生阶段</a></li>
+                                        <li><a href="#">社交行为</a></li>
+                                        <li><a href="#">观影偏好</a></li>
+                                        <li role="separetor" class="divider"></li>
+                                        <li class="dropdown-header"><H5>系统功能</H5></li>
+                                        <li><a href="#">标签定制</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" role="button">
+                                        <span class="maki-town-hall" style="color:green"></span>
+                                        <font size="+1" color="#bbb">地理信息</font>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header"><H5>地理位置</H5></li>
+                                        <li><a href="#">酒店位置</a></li>
+                                        <li><a href="#">起飞位置</a></li>
+                                        <li><a href="#">到达位置</a></li>
+                                        <li><a href="#">工作地址</a></li>
+                                        <li><a href="#">籍贯地址</a></li>
+                                        <li><a href="#">常去场所</a></li>
+                                        <li role="separetor" class="divider"></li>
+                                        <li class="dropdown-header"><H5>系统功能</H5></li>
+                                        <li><a href="#">设置</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" role="button">
+                                        <span class="entypo-network" style="color:green"></span>
+                                        <font size="+1" color="#bbb">网络行为</font>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header"><H5>上网时段</H5></li>
+                                        <li><a href="#">近1天</a></li>
+                                        <li><a href="#">近3天</a></li>
+                                        <li><a href="#">近7天</a></li>
+                                        <li><a href="#">近30天</a></li>
+                                        <li class="dropdown-header"><H5>上网频次</H5></li>
+                                        <li><a href="#">近1天</a></li>
+                                        <li><a href="#">近3天</a></li>
+                                        <li><a href="#">近7天</a></li>
+                                        <li><a href="#">近30天</a></li>
+                                        <li class="dropdown-header"><H5>媒体偏好</H5></li>
+                                        <li><a href="#">应用APP</a></li>
+                                        <li><a href="#">垂直网站</a></li>
+                                        <li class="dropdown-header"><H5>行业偏好</H5></li>
+                                        <li><a href="#">汽车</a></li>
+                                        <li><a href="#">农业</a></li>
+                                        <li><a href="#">3C</a></li>
+                                        <li><a href="#">游戏</a></li>
+                                        <li><a href="#">婚庆</a></li>
+                                        <li><a href="#">兴趣爱好</a></li>
+                                        <li><a href="#">家装</a></li>
+                                        <li><a href="#">食品</a></li>
+                                        <li><a href="#">母婴</a></li>
+                                        <li><a href="#">教育</a></li>
+                                        <li><a href="#">航旅</a></li>
+                                        <li><a href="#">房产</a></li>
+                                        <li><a href="#">艺术</a></li>
+                                        <li><a href="#">金融</a></li>
+                                        <li><a href="#">特殊行业</a></li>
+                                        <li><a href="#">美容</a></li>
+                                        <li class="dropdown-header"><H5>无线基础数据</H5></li>
+                                        <li><a href="#">无线兴趣</a></li>
+                                        <li><a href="#">无线活跃程度</a></li>
+                                        <li class="dropdown-header"><H5>上网活跃度</H5></li>
+                                        <li><a href="#">上网活跃度</a></li>
+                                        <li role="separetor" class="divider"></li>
+                                        <li class="dropdown-header"><H5>系统功能</H5></li>
+                                        <li><a href="#">设置</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" role="button">
+                                        <span class="fontawesome-money" style="color:green"></span>
+                                        <font size="+1" color="#bbb">消费偏好</font>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header"><H5>消费能力</H5></li>
+                                        <li><a href="#">消费500以内</a></li>
+                                        <li><a href="#">消费500到2000</a></li>
+                                        <li><a href="#">消费2000以上</a></li>
+                                        <li class="dropdown-header"><H5>消费品类</H5></li>
+                                        <li><a href="#">珠宝手表</a></li>
+                                        <li><a href="#">服饰鞋帽</a></li>
+                                        <li><a href="#">家居厨具</a></li>
+                                        <li><a href="#">运动健康</a></li>
+                                        <li><a href="#">箱包</a></li>
+                                        <li><a href="#">母婴用品</a></li>
+                                        <li><a href="#">数码</a></li>
+                                        <li><a href="#">文化教育</a></li>
+                                        <li><a href="#">化妆品</a></li>
+                                        <li><a href="#">餐饮</a></li>
+                                        <li><a href="#">家用电器</a></li>
+                                        <li><a href="#">休息娱乐</a></li>
+                                        <li><a href="#">生活服务</a></li>
+                                        <li><a href="#">零售卖场</a></li>
+                                        <li><a href="#">汽车服务</a></li>
+                                        <li><a href="#">房产置业</a></li>
+                                        <li><a href="#">医疗</a></li>
+                                        <li><a href="#">结婚</a></li>
+                                        <li><a href="#">丽人</a></li>
+                                        <li><a href="#">金融</a></li>
+                                        <li><a href="#">亲子</a></li>
+                                        <li><a href="#">培训机构</a></li>
+                                        <li><a href="#">零售卖场</a></li>
+                                        <li><a href="#">学校</a></li>
+                                        <li><a href="#">公司企业</a></li>
+                                        <li class="dropdown-header"><H5>消费定位</H5></li>
+                                        <li><a href="#">时尚品牌</a></li>
+                                        <li><a href="#">高端品牌</a></li>
+                                        <li><a href="#">大众品牌</a></li>
+                                        <li><a href="#">奢侈品牌</a></li>
+                                        <li class="dropdown-header"><H5>品牌国家</H5></li>
+                                        <li><a href="#">中国大陆</a></li>
+                                        <li><a href="#">港澳台</a></li>
+                                        <li><a href="#">其他国家</a></li>
+                                        <li role="separetor" class="divider"></li>
+                                        <li class="dropdown-header"><H5>系统功能</H5></li>
+                                        <li><a href="#">设置</a></li>
+                                    </ul>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a href="#" data-toggle="dropdown" role="button">
+                                        <span class="entypo-leaf" style="color:green"></span>
+                                        <font size="+1" color="#bbb">用户轨迹</font>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-header"><H5>航旅用户</H5></li>
+                                        <li><a href="#">当前营销关系</a></li>
+                                        <li><a href="#">历史营销关系</a></li>
+                                        <li class="dropdown-header"><H5>航旅行为</H5></li>
+                                        <li><a href="#">用户来源</a></li>
+                                        <li><a href="#">订单笔数</a></li>
+                                        <li><a href="#">订单金额</a></li>
+                                        <li><a href="#">购买频次</a></li>
+                                        <li role="separetor" class="divider"></li>
+                                        <li class="dropdown-header"><H5>系统功能</H5></li>
+                                        <li><a href="#">设置</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="#"><i title="帮助" style="font-size:+2; color:green"
+                                                   class="icon-help tooltitle"></i></a>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+
+                        <div class="body-nest" id="Footable">
+
+                            <p class="lead well">通过标签内容选择不同人群进行条件的叠加，从而产生新的标签销售人群，可通过标签修改功能，对标签定义进行修改删除</p>
+
+                            <table id="footable-res9" class="table-striped footable-res footable metro-blue"
+                                   data-filter="#filter" data-filter-text-only="true" data-page-size="6">
+
+                                <thead>
+                                <tr>
+
+                                    <th>
+                                        标签名称
+                                    </th>
+                                    <th>
+                                        标签描述
+                                    </th>
+                                    <th data-hide="phone,tablet">
+                                        标签选项
+                                    </th>
+                                    <th data-hide="phone,tablet">
+                                        有效期至
+                                    </th>
+                                    <th data-hide="phone,tablet">
+                                        提供方
+                                    </th>
+                                    <th data-hide="phone">
+                                        操作
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>消费500以内</td>
+                                    <td><a href="#">消费500以内的人群</a>
+                                    </td>
+                                    <td>区域：全国 消费金额：<500 消费时间：30天内</td>
+                                    <td data-value="78025368997">不限</td>
+                                    <td>商旅</td>
+                                    <td data-value="1">
+
+                                        <span class="status-metro status-active" title=""><a href="#"
+                                                                                             data-toggle="modal"
+                                                                                             data-target="#myModal01">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="action.html">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>行业优质人群</td>
+                                    <td>汽车、化妆品、母婴、结婚等优质人群</td>
+                                    <td><a href="#">游戏，汽车，旅游，化妆品，结婚人群，母婴</a>
+                                    </td>
+                                    <td data-value="370961043292">不限</td>
+                                    <td>第三方数据TD</td>
+                                    <td data-value="2">
+                                        <span class="status-metro status-active" title=""><a href="#"
+                                                                                             data-toggle="modal"
+                                                                                             data-target="#myModal02">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="action.html">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>购物性别</td>
+                                    <td>依据客户购物偏好预测得出</td>
+                                    <td>女性用户，男性用户，家庭用户，未知</td>
+                                    <td data-value="-22133780420">不限</td>
+                                    <td>第三方数据TD</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>是否全球通用户</td>
+                                    <td>是否为全球通用户</td>
+                                    <td>潜度用户，深度用户</td>
+                                    <td data-value="250833505574">2016.10.1</td>
+                                    <td>第三方移动数据</td>
+                                    <td data-value="1">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>最近15天内购买频次</td>
+                                    <td>最近15天客户购买机票或酒店的购买次数</td>
+                                    <td></td>
+                                    <td data-value="694116650726">不限</td>
+                                    <td>商旅</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>商旅用户</td>
+                                    <td><a href="#">最近180天，购买过机票或酒店的用户</a>
+                                    </td>
+                                    <td><a href="#">180天内，机票，酒店订单</a>
+                                    </td>
+                                    <td data-value="561440464855">不限</td>
+                                    <td>商旅</td>
+                                    <td data-value="2">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>认知用户</td>
+                                    <td>近90天内有电话查询酒店机票，并在180天内没有购买行为</td>
+                                    <td>90天内电话查询，180天内无酒店机票订单</td>
+                                    <td data-value="437400551390">不限</td>
+                                    <td>商旅</td>
+                                    <td data-value="2">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>现有用户</td>
+                                    <td><a href="#">近90天内有购买过酒店或机票</a>
+                                    </td>
+                                    <td>90天内购买机票酒店</td>
+                                    <td data-value="-257733999319">不限</td>
+                                    <td>商旅</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>沉默用户</td>
+                                    <td>近180天内有购买酒店或机票，但近90天没有购买行为</td>
+                                    <td>180天内酒店机票订单，近90天没有订单</td>
+                                    <td data-value="362134712000">不限</td>
+                                    <td>商旅</td>
+                                    <td data-value="1">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>潜在用户</td>
+                                    <td>目前没有查询和预订酒店机票行为，但是有可能发展成酒店机票新用户</td>
+                                    <td>使用去哪儿，携程，艺龙，马蜂窝等旅游类的APP用户</td>
+                                    <td data-value="500874333932">不限</td>
+                                    <td>第三方数据TD</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-active" title=""><a href="#">添加</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="pagination pagination-centered"></div>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1" class="modal fade bs-example-modal-lg"
+             style="display: none;" id="myModal01">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+                            <span class="entypo-cancel"></span>
+                        </button>
+                        <h3 id="myLargeModalLabel" class="modal-title">选择标签创建新的营销人群</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="compose_mail">
+
+                            <form role="form">
+                                <H3 align="middle">消费500以内</H3>  <br>
+                                <label> 提供方：商旅 </label> <br>
+                                <label>有效期至：不限 </label> <br>
+                                <label>标签描述：消费500内的人群 </label> <br>
+                                <div class="ratings">
+
+                                    <label> 效果质量评分：</label>
+
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star-o"></span>
+                                    </a>
+
+                                </div>
+
+                                <label>标签选项： </label> <br>
+
+
+                                <input tabindex="13" type="checkbox" id="flat-checkbox-1">
+                                <label for="flat-checkbox-1">全国</label>
+                                <input tabindex="14" type="checkbox" id="flat-checkbox-2">
+                                <label for="flat-checkbox-2">30天内</label>
+                                <input tabindex="15" type="checkbox" id="flat-checkbox-3">
+                                <label for="flat-checkbox-3">/<500</label> <br><br>
+
+                                <button class="btn" type="submit"><a href="newmarketing.html"><i
+                                        class="entypo-pencil"></i>&nbsp;&nbsp;确定添加</a></button>
+                                <br> <br> <br>
+                                <a href="#"><i class="icon icon-graph-pie"></i>&nbsp;&nbsp;对标签进行透视分析？</a>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1" class="modal fade bs-example-modal-lg"
+             style="display: none;" id="myModal02">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+                            <span class="entypo-cancel"></span>
+                        </button>
+                        <h3 id="myLargeModalLabel" class="modal-title">选择标签创建新的营销人群</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="compose_mail">
+
+                            <form role="form">
+                                <H3 align="middle">行业优质人群</H3>  <br>
+                                <label> 提供方：第三方数据TD </label> <br>
+                                <label>有效期至：不限 </label> <br>
+                                <label>标签描述：汽车、化妆品、母婴、结婚等优质人群 </label> <br>
+                                <div class="ratings">
+
+                                    <label> 效果质量评分：</label>
+
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star-o"></span>
+                                    </a>
+                                    <a href="#">
+                                        <span class="fa fa-star-o"></span>
+                                    </a>
+
+                                </div>
+
+                                <label>标签选项： </label> <br>
+
+
+                                <input tabindex="13" type="checkbox" id="flat-checkbox-4">
+                                <label for="flat-checkbox-4">游戏</label>
+                                <input tabindex="14" type="checkbox" id="flat-checkbox-5">
+                                <label for="flat-checkbox-5">汽车</label>
+                                <input tabindex="15" type="checkbox" id="flat-checkbox-6">
+                                <label for="flat-checkbox-6">旅游</label>
+                                <input tabindex="16" type="checkbox" id="flat-checkbox-7">
+                                <label for="flat-checkbox-7">结婚人群</label>
+                                <input tabindex="17" type="checkbox" id="flat-checkbox-8">
+                                <label for="flat-checkbox-8">母婴</label>
+                                <input tabindex="18" type="checkbox" id="flat-checkbox-9">
+                                <label for="flat-checkbox-9">化妆品</label> <br><br>
+
+                                <button class="btn" type="submit"><a href="newmarketing.html"><i
+                                        class="entypo-pencil"></i>&nbsp;&nbsp;确定添加</a></button>
+                                <br> <br> <br>
+                                <a href="#"><i class="icon icon-graph-pie"></i>&nbsp;&nbsp;对标签进行透视分析？</a>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="content-wrap">
+            <div class="page-extra">
+
+                <!-- Main content -->
+                <section class="content invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-xs-12 invoice-header" style="background:#888999">
+                            <h2 class="page-header">
+                                <i class="fa fa-globe"></i> 通过选择标签叠加所获得的人群流量范围
+                            </h2>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+
+
+                    <div>
+                        <div class="col-sm-6">
+                            <label><H5>营销人群名称:</H5></label>
+                            <input type="text" class="form-control" style="width:400px">
+                            <span class="help-block">请填写营销人群名称.</span>
+
+
+                            <label><H5>有效期至:</H5></label>
+                            <input type="text" class="form-control" id="dp1" value="09-07-2016" style="width:200px">
+                            <!--input type="text" class="form-control" style="width:200px"-->
+                            <span class="help-block">*人群有效期早于所用标签的最早有效期,且最长不超过30天.</span>
+
+
+                            <label><H5>筛选条件:</H5></label>
+
+
+                            <input tabindex="13" type="checkbox" id="flat-checkbox-4">
+                            <label for="flat-checkbox-4">游戏</label>
+                            <input tabindex="14" type="checkbox" id="flat-checkbox-5">
+                            <label for="flat-checkbox-5">汽车</label>
+                            <input tabindex="15" type="checkbox" id="flat-checkbox-6">
+                            <label for="flat-checkbox-6">旅游</label>
+                            <input tabindex="16" type="checkbox" id="flat-checkbox-7">
+                            <label for="flat-checkbox-7">结婚人群</label>
+                            <input tabindex="17" type="checkbox" id="flat-checkbox-8">
+                            <label for="flat-checkbox-8">母婴</label>
+                            <input tabindex="18" type="checkbox" id="flat-checkbox-9">
+                            <label for="flat-checkbox-9">化妆品</label>
+
+                            <input tabindex="13" type="checkbox" id="flat-checkbox-10">
+                            <label for="flat-checkbox-10">男性</label>
+                            <input tabindex="14" type="checkbox" id="flat-checkbox-11">
+                            <label for="flat-checkbox-11">女性</label>
+                            <input tabindex="15" type="checkbox" id="flat-checkbox-12">
+                            <label for="flat-checkbox-12">未知</label>
+
+
+                            <br>
+
+
+                            <input tabindex="11" type="radio" id="square-radio-1" name="square-radio" checked="">
+                            <label for="square-radio-1"><H4>短信推送</H4></label>
+                            <input tabindex="12" type="radio" id="square-radio-2" name="square-radio" checked="">
+                            <label for="square-radio-1"><H4>H5推送</H4></label>
+                            <input tabindex="13" type="radio" id="square-radio-3" name="square-radio" checked="">
+                            <label for="square-radio-1"><H4>第三方推送</H4></label>
+
+                            <br>
+
+                            <textarea rows="6" style="width:600px;">编写要推送的营销信息.....</textarea>
+                            <br>
+                            <input tabindex="16" type="checkbox" id="flat-checkbox-13">
+                            <label for="flat-checkbox-13"><H5>保存后立即推送</H5></label>
+
+                        </div>
+
+
+                        <div class="User_ratings User_grade" id="div_fraction0">
+                            <label><H5>&nbsp;&nbsp;&nbsp;&nbsp;固定人数范围约:</H5></label>
+                            <!--H1><label id="niu"></label></H1-->
+                            <label><H1>136,567</H1></label>
+                            <label><H5>人</H5></label>
+                            <div class="ratings_title01"><p><span>&nbsp;人群扩展</span>-拖动滑动条可按倍数进行人群扩展<i>-最高支持10倍</i></p>
+                            </div>
+                            <div class="ratings_bars">
+                                <span id="title0">0</span>
+                                <span class="bars_10">0</span>
+                                <div class="scale" id="bar0">
+                                    <div></div>
+                                    <span id="btn0"></span>
+                                </div>
+                                <span class="bars_10">10</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- /.row -->
+                    <br><br><br><br><br><br>
+                    <!-- Table row -->
+                    <div class="row">
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>标签名称</th>
+                                    <th>标签描述</th>
+                                    <th>有效期至</th>
+                                    <th>提供方</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>消费500以内</td>
+                                    <td>消费500以内的人群</td>
+                                    <td>不限</td>
+                                    <td>商旅</td>
+                                    <td><span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>行业优质人群</td>
+                                    <td>汽车、化妆品、母婴、结婚等优质人群</td>
+                                    <td>不限</td>
+                                    <td>第三方数据TD</td>
+                                    <td>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>购物性别</td>
+                                    <td>依据客户购物偏好预测得出</td>
+                                    <td>不限</td>
+                                    <td>第三方数据TD</td>
+                                    <td>
+                                        <span class="status-metro status-active" title=""><a href="#">编辑</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">清除</a></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+
+                    <div class="row">
+                        <!-- accepted payments column -->
+
+
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-xs-12">
+                            <button class="btn btn-default" onClick="window.print();"><i class="fa fa-print"></i> 打印
+                            </button>
+                            <!--button class="btn btn-default pull-right" style="margin-right: 5px;"><a href="#" data-toggle="modal" data-target="#myModal03"><i class="fa fa-download"></i>营销人群扩展</a></button-->
+                            <button class="btn btn-default pull-right" style="margin-right: 5px;"><a
+                                    href="marketing.html"><i class="fa fa-credit-card"></i> <font
+                                    color="white">保存为营销人群</font></button>
+
+
+                        </div>
+                    </div>
+                </section>
+                <!-- /.content -->
+            </div>
+
+
+        </div>
+
+
+        <!---- -----------------------------------------------------------------------	>
+
+
+
+
+
+
+
+
+        <!---- -----------------------------------------------------------------------	>
+                    <!-- /END OF CONTENT -->
+
+
+        <!-- FOOTER -->
+        <div class="footer-space"></div>
+        <div id="footer">
+            <div class="devider-footer-left"></div>
+            <div class="time">
+                <p id="spanDate">
+                <p id="clock">
+            </div>
+            <div class="copyright">技术支持
+                <span class="entypo-heart"></span>Contact from <a href="index.html" title="SearchUdata DMP"
+                                                                  target="_blank">umessage.com.cn</a> All Rights
+                Reserved
+            </div>
+            <div class="devider-footer"></div>
+
+        </div>
+        <!-- / END OF FOOTER -->
+
+    </div>
+</div>
+<!--  END OF PAPER WRAP -->
+<!-- RIGHT SLIDER CONTENT -->
+<div class="sb-slidebar sb-right">
+    <div class="right-wrapper">
+        <div class="row">
+            <h3>
+                <span><i class="entypo-gauge"></i>&nbsp;&nbsp;MAIN WIDGET</span>
+            </h3>
+            <div class="col-sm-12">
+
+                <div class="widget-knob">
+                        <span class="chart" style="position:relative" data-percent="86">
+                            <span class="percent"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>Distance traveled</b>
+                    <br>
+                    <i>86% to the check point</i>
+                </div>
+
+                <div class="widget-knob">
+                        <span class="speed-car" style="position:relative" data-percent="60">
+                            <span class="percent2"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>The average speed</b>
+                    <br>
+                    <i>30KM/h avarage speed</i>
+                </div>
+
+
+                <div class="widget-knob">
+                        <span class="overall" style="position:relative" data-percent="25">
+                            <span class="percent3"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>Overall result</b>
+                    <br>
+                    <i>30KM/h avarage Result</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:0;" class="right-wrapper">
+        <div class="row">
+            <h3>
+                <span><i class="entypo-chat"></i>&nbsp;&nbsp;CHAT</span>
+            </h3>
+            <div class="col-sm-12">
+                <span class="label label-warning label-chat">Online</span>
+                <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/20.jpg">
+                                </span><b>龙通彬</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/21.jpg">
+                                </span><b>李常在</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/22.jpg">
+                                </span><b>赵新志</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <span class="label label-chat">Offline</span>
+                <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/23.jpg">
+                                </span><b>张阳</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/women/24.jpg">
+                                </span><b>杨宝宁</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/25.jpg">
+                                </span><b>王卫哲</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/women/25.jpg">
+                                </span><b>王凯</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/26.jpg">
+                                </span><b>曾毅</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END OF RIGHT SLIDER CONTENT-->
+
+
+<!-- MAIN EFFECT -->
+<script type="text/javascript" src="assets/js/preloader.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/load.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+<script type="text/javascript" src="assets/js/iCheck/jquery.icheck.js"></script>
+<script type="text/javascript" src="assets/js/switch/bootstrap-switch.js"></script>
+
+
+<!-- /MAIN EFFECT -->
+<!-- GAGE -->
+<script type="text/javascript" src="assets/js/toggle_close.js"></script>
+<script src="assets/js/footable/js/footable.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+<script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="assets/js/colorPicker/bootstrap-colorpicker.min.js"></script>
+<script type="text/javascript" src="assets/js/inputMask/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="assets/js/switch/bootstrap-switch.js"></script>
+<script type="text/javascript" src="assets/js/validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="assets/js/idealform/jquery.idealforms.js"></script>
+
+<script type="text/javascript" src="assets/js/timepicker/bootstrap-timepicker.js"></script>
+<script type="text/javascript" src="assets/js/datepicker/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/js/datepicker/clockface.js"></script>
+<script type="text/javascript" src="assets/js/datepicker/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="dist/bootstrap-slider.js"></script>
+<script type="text/javascript" src="dist/bootstrap-slider.min.js"></script>
+
+<script type="text/javascript" src="assets/js/tag/jquery.tagsinput.js"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('.footable-res').footable();
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#footable-res2').footable().bind('footable_filtering', function (e) {
+            var selected = $('.filter-status').find(':selected').text();
+            if (selected && selected.length > 0) {
+                e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+                e.clear = !e.filter;
+            }
+        });
+
+        $('.clear-filter').click(function (e) {
+            e.preventDefault();
+            $('.filter-status').val('');
+            $('table.demo').trigger('footable_clear_filter');
+        });
+
+        $('.filter-status').change(function (e) {
+            e.preventDefault();
+            $('table.demo').trigger('footable_filter', {
+                filter: $('#filter').val()
+            });
+        });
+
+        $('.filter-api').click(function (e) {
+            e.preventDefault();
+
+            //get the footable filter object
+            var footableFilter = $('table').data('footable-filter');
+
+            // alert('about to filter table by "tech"');
+            //filter by 'tech'
+            //  footableFilter.filter('tech');
+
+            //clear the filter
+            // if (confirm('是否现在创建新的营销人群?')) {
+            //     footableFilter.clearFilter();
+            //  }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        //CHECKBOX PRETTYFY
+        $('.skin-flat input').iCheck({
+            checkboxClass: 'icheckbox_flat-red',
+            radioClass: 'iradio_flat-red'
+        });
+        $('.skin-line input').each(function () {
+            var self = $(this),
+                    label = self.next(),
+                    label_text = label.text();
+
+            label.remove();
+            self.iCheck({
+                checkboxClass: 'icheckbox_line-blue',
+                radioClass: 'iradio_line-blue',
+                insert: '<div class="icheck_line-icon"></div>' + label_text
+            });
+        });
+        //Switch Button
+
+        $('.make-switch').bootstrapSwitch('setSizeClass', 'switch-small');
+    });
+</script>
+
+<script type="text/javascript">
+    $('#datetimepicker1').datetimepicker({
+        language: 'pt-BR'
+    });
+    $('#dp1').datepicker()
+    $('#dpYears').datepicker();
+    $('#timepicker1').timepicker();
+    $('#t1').clockface();
+    $('#t2').clockface({
+        format: 'HH:mm',
+        trigger: 'manual'
+    });
+
+    $('#toggle-btn').click(function (e) {
+        e.stopPropagation();
+        $('#t2').clockface('toggle');
+    });
+</script>
+
+
+<script type="text/javascript">
+    scale = function (btn, bar, title) {
+        this.btn = document.getElementById(btn);
+        this.bar = document.getElementById(bar);
+        this.title = document.getElementById(title);
+        this.step = this.bar.getElementsByTagName("DIV")[0];
+        this.init();
+    };
+    scale.prototype = {
+        init: function () {
+            var f = this, g = document, b = window, m = Math;
+            f.btn.onmousedown = function (e) {
+                var x = (e || b.event).clientX;
+                var l = this.offsetLeft;
+                var max = f.bar.offsetWidth - this.offsetWidth;
+                g.onmousemove = function (e) {
+                    var thisX = (e || b.event).clientX;
+                    var to = m.min(max, m.max(-2, l + (thisX - x)));
+                    f.btn.style.left = to + 'px';
+                    f.ondrag(m.round(m.max(0, to / max) * 100), to);
+                    b.getSelection ? b.getSelection().removeAllRanges() : g.selection.empty();
+                };
+                g.onmouseup = new Function('this.onmousemove=null');
+            };
+        },
+        ondrag: function (pos, x) {
+            this.step.style.width = Math.max(0, x) + 'px';
+            this.title.innerHTML = pos / 10 + '';
+        }
+    }
+    new scale('btn0', 'bar0', 'title0');
+    new scale('btn1', 'bar1', 'title1');
+    new scale('btn2', 'bar2', 'title2');
+    new scale('btn3', 'bar3', 'title3');
+    new scale('btn4', 'bar4', 'title4');
+</script>
+
+
+</body>
+
+</html>
+
+

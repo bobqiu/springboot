@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SearchUdata 1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/extra-pages.css">
+
+
+    <script type="text/javascript" src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script>
+    <link href="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.css" rel="stylesheet"
+          type="text/css"/>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/library/TrafficControl/1.4/src/TrafficControl_min.js"></script>
+
+    <script type="text/javascript" src="http://developer.baidu.com/map/custom/stylelist.js"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=A4749739227af1618f7b0d1b588c0e85"></script>
+    <!--加载鼠标绘制工具-->
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.css"/>
+    <!--加载检索信息窗口-->
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.4/src/SearchInfoWindow_min.css"/>
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+    <style type="text/css">
+        body, html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        #map {
+            width: 100%;
+            height: 500px;
+            overflow: auto;
+        }
+
+        #result {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        li {
+            line-height: 28px;
+        }
+
+        .cityList {
+            height: 320px;
+            width: 372px;
+            overflow-y: auto;
+        }
+
+        .sel_container {
+            z-index: 9999;
+            font-size: 12px;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 140px;
+            background: rgba(255, 255, 255, 0.8);
+            height: 30px;
+            line-height: 30px;
+            padding: 5px;
+        }
+
+        .map_popup {
+            position: absolute;
+            z-index: 200000;
+            width: 382px;
+            height: 344px;
+            right: 0px;
+            top: 40px;
+        }
+
+        .map_popup .popup_main {
+            background: #fff;
+            border: 1px solid #8BA4D8;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .map_popup .title {
+            background: url("http://map.baidu.com/img/popup_title.gif") repeat scroll 0 0 transparent;
+            color: #6688CC;
+            font-weight: bold;
+            height: 24px;
+            line-height: 25px;
+            padding-left: 7px;
+        }
+
+        .map_popup button {
+            background: url("http://map.baidu.com/img/popup_close.gif") no-repeat scroll 0 0 transparent;
+            cursor: pointer;
+            height: 12px;
+            position: absolute;
+            right: 4px;
+            top: 6px;
+            width: 12px;
+        }
+
+        #r-result {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<!--div id="awwwards" class="right black"><a href="tree.html" target="_blank">best websites of the world</a></div>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<!-- TOP NAVBAR -->
+<nav role="navigation" class="navbar navbar-static-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle"
+                    type="button">
+                <span class="entypo-menu"></span>
+            </button>
+            <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
+                <span class="entypo-list-add"></span>
+            </button>
+
+
+            <div id="logo-mobile" class="visible-xs">
+                <h1>SearchUdata<span>v1.0</span></h1>
+            </div>
+
+        </div>
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:20px;"
+                                                                                  class="icon-conversation"></i>
+                        <div class="noft-red">23</div>
+                    </a>
+
+
+                    <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/1.jpg">李常在 <b>Just Now</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/women/1.jpg">邱波 <b>3 Min Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/2.jpg">赵新志 <b>2 Hours Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/3.jpg"><i>龙通彬</i> <b>1 Day
+                                Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/4.jpg"><i>张阳</i> <b>2 Mounth
+                                Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>查看所有消息</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:19px;"
+                                                                                  class="icon-warning tooltitle"></i>
+                        <div class="noft-green">5</div>
+                    </a>
+                    <ul style="margin: 12px 0 0 0;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <span style="background:#DF2135" class="noft-icon maki-bus"></span><i>From Station</i>
+                                <b>01B</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#AB6DB0" class="noft-icon maki-ferry"></span><i>Departing at</i>
+                                <b>9:00 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#FFA200" class="noft-icon maki-aboveground-rail"></span><i>Delay
+                                for</i> <b>09 Min</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#86C440" class="noft-icon maki-airport"></span><i>Take of</i>
+                                <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#0DB8DF" class="noft-icon maki-bicycle"></span><i>Take of</i>
+                                <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>查看所有通知</div>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;"
+                                   class="icon-help tooltitle"></i></a>
+                </li>
+
+            </ul>
+            <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                <ul class="date-top">
+                    <li class="entypo-calendar" style="margin-right:5px"></li>
+                    <li id="Date"></li>
+
+
+                </ul>
+
+                <ul id="digital-clock" class="digital">
+                    <li class="entypo-clock" style="margin-right:5px"></li>
+                    <li class="hour"></li>
+                    <li>:</li>
+                    <li class="min"></li>
+                    <li>:</li>
+                    <li class="sec"></li>
+                    <li class="meridiem"></li>
+                </ul>
+                <ul id="nt-title">
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;北京&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;上海&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; Tonight- 72 °F (22.2 °C)
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;广州&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;深圳&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Frankurt&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                </ul>
+            </div>
+
+            <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" class="admin-pic img-circle" src="lander.jpg">Hi, zhouchong <b class="caret"></b>
+                    </a>
+                    <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                        <li>
+                            <a href="#">
+                                <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="entypo-vcard"></span>&#160;&#160;Account Setting</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="entypo-lifebuoy"></span>&#160;&#160;Help</a>
+                        </li>
+                        <li class="divider"></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="icon-gear"></span>&#160;&#160;Setting</a>
+                    <ul role="menu" class="dropdown-setting dropdown-menu">
+
+                        <li class="theme-bg">
+                            <div id="button-bg"></div>
+                            <div id="button-bg2"></div>
+                            <div id="button-bg3"></div>
+                            <div id="button-bg5"></div>
+                            <div id="button-bg6"></div>
+                            <div id="button-bg7"></div>
+                            <div id="button-bg8"></div>
+                            <div id="button-bg9"></div>
+                            <div id="button-bg10"></div>
+                            <div id="button-bg11"></div>
+                            <div id="button-bg12"></div>
+                            <div id="button-bg13"></div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="hidden-xs">
+                    <a class="toggle-left" href="#">
+                        <span style="font-size:20px;" class="entypo-list-add"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- /END OF TOP NAVBAR -->
+
+<!-- SIDE MENU -->
+<div id="skin-select">
+    <div id="logo">
+        <h1>SUdata DMP<span>v1.0</span></h1>
+    </div>
+
+    <a id="toggle">
+        <span class="entypo-menu"></span>
+    </a>
+    <div class="dark">
+        <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search"
+                           placeholder="Search Menu..." autofocus="">
+                </span>
+        </form>
+    </div>
+
+    <div class="search-hover">
+        <form id="demo-2">
+            <input type="search" placeholder="Search Menu..." class="id_search">
+        </form>
+    </div>
+
+    <div class="skin-part">
+        <div id="tree-wrap">
+            <div class="side-bar">
+                <ul class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="widget-menu"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="#" title="标签管理">
+                            <i class="icon-document-edit"></i>
+                            <span>标签聚类</span>
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="marketing.html" title="营销人群管理"><i
+                                        class="entypo-doc-text"></i><span>营销人群管理</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="newmarketing.html" title="新建营销人群"><i
+                                        class="entypo-newspaper"></i><span>新建营销人群</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="profile_test.html" title="数据资产管理">
+                            <i class="icon-feed"></i>
+                            <span>个人标签</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="tagput.html" title="应用分析">
+                            <i class="icon-camera"></i>
+                            <span>标签扩展</span>
+
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="design-kit"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="test.html" title="应用分析仪表盘">
+                            <i class="icon-window"></i>
+                            <span>应用分析仪表盘</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="mail.html" title="关键字搜索分析">
+                            <i class="icon-mail"></i>
+                            <span>关键字搜索分析</span>
+                            <div class="noft-blue">289</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="action.html" title="行为分析">
+                            <i class="icon-preview"></i>
+                            <span>行为分析</span>
+                            <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip" href="#" title="航旅数据分析">
+                            <i class="icon-document-new"></i>
+                            <span>航旅数据分析</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="hotel_test.html" title="酒店业务分析"><i
+                                        class="icon icon-home"></i><span>酒店业务分析</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店潜客预测模型"><i
+                                        class="icon icon-user-group"></i><span>酒店潜客预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="icon icon-graph-line"></i><span>酒店价格预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="icon icon-retweet"></i><span>酒店成本收益预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="air_test.html" title="机票业务分析"><i
+                                        class="icon-user"></i><span>机票业务分析</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店潜客预测模型"><i
+                                        class="fontawesome-group"></i><span>机票潜客预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="fontawesome-strikethrough"></i><span>机票价格预测模型</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="酒店价格预测模型"><i
+                                        class="fontawesome-fighter-jet"></i><span>机票成本收益预测模型</span></a>
+                            </li>
+
+                            <li>
+                                <a class="tooltip-tip2" href="lock-screen.html" title="Lock Screen"><i
+                                        class="icon-lock"></i><span>登入锁定</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip " href="login.html" title="用户登入">
+                            <i class="icon-download"></i>
+                            <span>用户登入</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <ul id="menu-showhide" class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="component"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a class="tooltip-tip" href="#" title="数据资产">
+                            <i class="icon-monitor"></i>
+                            <span>数据资产</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="Element"><i
+                                        class="icon-attachment"></i><span>第一方数据</span></a>
+                            </li>
+                            <li><a class="tooltip-tip2 ajax-load" href="#.html" title="Button"><i
+                                    class="icon-view-list-large"></i><span>第二方数据</span>
+                                <div class="noft-blue-number">10</div>
+                            </a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="#.html" title="Tab & Accordion"><i
+                                        class="icon-folder"></i><span>第三方数据</span>
+                                    <div class="noft-purple-number">3</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="数据来源">
+                            <i class="icon-document"></i>
+                            <span>数据来源</span>
+                        </a>
+                        <ul>
+
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="file-upload.html" title="File Upload"><i
+                                        class="icon-upload"></i><span>文件上传</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="text-editor.html" title="Text Editor"><i
+                                        class="icon-code"></i><span>数据工厂</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="form-element.html" title="Form Elements"><i
+                                        class="icon-document-edit"></i><span>数据探索</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="数据列表">
+                            <i class="icon-view-thumb"></i>
+                            <span>数据列表</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="table-static.html" title="Table Static"><i
+                                        class="entypo-layout"></i><span>静态数据表</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="table-dynamic.html" title="Table Dynamic"><i
+                                        class="entypo-menu"></i><span>动态数据表</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="newmap.html" title="GIS数据">
+                            <i class="icon-location"></i>
+                            <span>GIS数据</span>
+
+                        </a>
+                    </li>
+                </ul>
+
+
+                <div class="side-dash">
+                    <h3>
+                        <span>数据处理量</span>
+                    </h3>
+                    <ul class="side-dashh-list">
+                        <li>平均量
+                                <span>25k<i style="color:#44BBC1;" class="fa fa-arrow-circle-up"></i>
+                                </span>
+                        </li>
+                        <li>访问量
+                                <span>80%<i style="color:#AB6DB0;" class="fa fa-arrow-circle-down"></i>
+                                </span>
+                        </li>
+                        <li>覆盖率
+                                <span>13m<i style="color:#19A1F9;" class="fa fa-arrow-circle-up"></i>
+                                </span>
+                        </li>
+                    </ul>
+                    <h3>
+                        <span>数据处理图</span>
+                    </h3>
+                    <ul class="side-bar-list">
+                        <li>平均量
+                            <div class="linebar">5,7,8,9,3,5,3,8,5</div>
+                        </li>
+                        <li>访问量
+                            <div class="linebar2">9,7,8,9,5,9,6,8,7</div>
+                        </li>
+                        <li>覆盖率
+                            <div class="linebar3">5,7,8,9,3,5,3,8,5</div>
+                        </li>
+                    </ul>
+                    <h3>
+                        <span>实时访问量</span>
+                    </h3>
+                    <div id="g1" style="height:180px" class="gauge"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF SIDE MENU -->
+
+
+<!--  PAPER WRAP -->
+<div class="wrap-fluid">
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <!-- CONTENT -->
+        <!--TITLE -->
+        <div class="row">
+            <div id="paper-top">
+                <div class="col-sm-3">
+                    <h2 class="tittle-content-header">
+                        <i class="icon-view-list"></i>
+                            <span> GIS数据营销
+                            </span>
+                    </h2>
+
+                </div>
+
+                <div class="col-sm-7">
+                    <div class="devider-vertical visible-lg"></div>
+                    <div class="tittle-middle-header">
+
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <span class="tittle-alert entypo-info-circled"></span>
+                            欢迎回来,&nbsp;
+                            <strong>周翀!</strong>&nbsp;&nbsp;你最近登入的时间是 昨天下午, 16:54 PM
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--/ TITLE -->
+
+        <!-- BREADCRUMB -->
+        <ul id="breadcrumb">
+            <li>
+                <span class="entypo-home"></span>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1"> GIS数据</a>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1"> GIS数据营销</a>
+            </li>
+            <li class="pull-right">
+                <div class="input-group input-widget">
+
+                    <!--input style="border-radius:15px" type="text" placeholder="Search..." class="form-control"-->
+
+
+                </div>
+            </li>
+        </ul>
+
+        <!-- END OF BREADCRUMB -->
+
+        <div class="content-wrap">
+            <div class="row">
+
+                <a data-toggle="modal" data-target="#myModal" id="yin" onclick="fn()"></a>
+                <div class="col-sm-12">
+                    <div class="nest" id="GmapClose">
+                        <div class="title-alt">
+                            <h6>
+                                GIS数据营销平台</h6>
+                            <div class="titleClose">
+                                <a class="gone" href="#GmapClose">
+                                    <span class="entypo-cancel"></span>
+                                </a>
+                            </div>
+                            <div class="titleToggle">
+                                <a class="nav-toggle-alt" href="#Gmap">
+                                    <span class="entypo-up-open"></span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div style="padding:0;" class="body-nest" id="Gmap">
+                            <div id="map"
+                                 style="-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out; height:1200px"></div>
+
+                            <div id="result">
+                                <input type="button" value="获取绘制的覆盖物个数" onclick="alert(overlays.length)"/>
+                                <input type="button" value="清除所有覆盖物" onclick="clearAll()"/>
+
+
+                                <button id="open">显示酒店</button>
+                                <button id="close">关闭酒店</button>
+                                <select id="stylelist" onchange="changeMapStyle(this.value)"></select>
+
+                            </div>
+                            <!--城市列表-->
+                            <div class="sel_container"><strong id="curCity">北京市</strong> [<a id="curCityText"
+                                                                                             href="javascript:void(0)">更换城市</a>]
+                            </div>
+                            <div class="map_popup" id="cityList" style="display:none;">
+                                <div class="popup_main">
+                                    <div class="title">城市列表</div>
+                                    <div class="cityList" id="citylist_container"></div>
+                                    <button id="popup_close"></button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1" class="modal fade bs-example-modal-lg"
+             style="display: none;" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+                            <span class="entypo-cancel"></span>
+                        </button>
+                        <h5 id="myLargeModalLabel" class="modal-title">发送营销短讯-选择发送方式和人群性别</h5>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="compose_mail">
+
+                            <form role="form">
+
+                                <div class="form-group">
+
+                                    <input type="checkbox" id="sendmessage" name="sendmode">短信&nbsp;&nbsp;
+                                    <input type="checkbox" id="sendHTML5" name="sendmode">H5&nbsp;&nbsp;
+                                    <input type="checkbox" name="sex" value="male"/>男性&nbsp;&nbsp;
+                                    <input type="checkbox" name="sex" value="female"/>女性&nbsp;&nbsp;
+                                </div>
+
+                                <div class="form-group">
+
+                                    <input type="tel" placeholder="13811604318;13745674326;" id="Inputtel"
+                                           class="form-control">
+                                </div>
+
+
+                                <div class="btn-group">
+                                    <button data-toggle="dropdown" class="btn dropdown-toggle" type="button">
+                                        <span class="fontawesome-font"></span>Normal text
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn">
+                                        <span class="fontawesome-bold"></span>
+                                    </button>
+                                    <button type="button" class="btn">
+                                        <span class="fontawesome-italic"></span>
+                                    </button>
+                                    <button type="button" class="btn">
+                                        <span class="fontawesome-underline"></span>
+                                    </button>
+                                </div>
+
+                                <div class="btn-group">
+                                    <button type="button" class="btn">
+                                        <span class="fontawesome-list-ul"></span>
+                                    </button>
+                                    <button type="button" class="btn">
+                                        <span class="fontawesome-list-ol"></span>
+                                    </button>
+                                    <button type="button" class="btn">
+                                        <span class="fontawesome-indent-left"></span>
+                                    </button>
+                                    <button type="button" class="btn">
+                                        <span class="fontawesome-indent-right"></span>
+                                    </button>
+
+                                </div>
+
+
+                                <button type="button" class="btn">
+                                    <span class="entypo-link"></span>
+                                </button>
+                                <button type="button" class="btn">
+                                    <span class="entypo-attach"></span>
+                                </button>
+                                <button type="button" class="btn">
+                                    <span class="fontawesome-table"></span>
+                                </button>
+                                <button type="button" class="btn">
+                                    <span class="fontawesome-camera"></span>
+                                </button>
+
+
+                                <textarea style="height:200px!important;margin:20px 0" class="form-control"
+                                          rows="8"></textarea>
+
+
+                                <button class="btn" type="submit">发送</button>
+                                <button class="btn" type="submit">
+                                    <span class="fontawesome-save"></span>&nbsp;&nbsp;保存为草稿
+                                </button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!---- -----------------------------------------------------------------------	>
+
+
+
+
+
+
+
+
+        <!---- -----------------------------------------------------------------------	>
+                    <!-- /END OF CONTENT -->
+
+
+        <!-- FOOTER -->
+        <div class="footer-space"></div>
+        <div id="footer">
+            <div class="devider-footer-left"></div>
+            <div class="time">
+                <p id="spanDate">
+                <p id="clock">
+            </div>
+            <div class="copyright">技术支持
+                <span class="entypo-heart"></span>Contact from <a href="index.html" title="SearchUdata DMP"
+                                                                  target="_blank">umessage.com.cn</a> All Rights
+                Reserved
+            </div>
+            <div class="devider-footer"></div>
+
+        </div>
+        <!-- / END OF FOOTER -->
+
+    </div>
+</div>
+<!--  END OF PAPER WRAP -->
+<!-- RIGHT SLIDER CONTENT -->
+<div class="sb-slidebar sb-right">
+    <div class="right-wrapper">
+        <div class="row">
+            <h3>
+                <span><i class="entypo-gauge"></i>&nbsp;&nbsp;MAIN WIDGET</span>
+            </h3>
+            <div class="col-sm-12">
+
+                <div class="widget-knob">
+                        <span class="chart" style="position:relative" data-percent="86">
+                            <span class="percent"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>Distance traveled</b>
+                    <br>
+                    <i>86% to the check point</i>
+                </div>
+
+                <div class="widget-knob">
+                        <span class="speed-car" style="position:relative" data-percent="60">
+                            <span class="percent2"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>The average speed</b>
+                    <br>
+                    <i>30KM/h avarage speed</i>
+                </div>
+
+
+                <div class="widget-knob">
+                        <span class="overall" style="position:relative" data-percent="25">
+                            <span class="percent3"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>Overall result</b>
+                    <br>
+                    <i>30KM/h avarage Result</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:0;" class="right-wrapper">
+        <div class="row">
+            <h3>
+                <span><i class="entypo-chat"></i>&nbsp;&nbsp;CHAT</span>
+            </h3>
+            <div class="col-sm-12">
+                <span class="label label-warning label-chat">Online</span>
+                <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/20.jpg">
+                                </span><b>龙通彬</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/21.jpg">
+                                </span><b>李常在</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/22.jpg">
+                                </span><b>赵新志</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <span class="label label-chat">Offline</span>
+                <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/23.jpg">
+                                </span><b>张阳</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/women/24.jpg">
+                                </span><b>杨宝宁</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/25.jpg">
+                                </span><b>王卫哲</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/women/25.jpg">
+                                </span><b>王凯</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/26.jpg">
+                                </span><b>曾毅</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END OF RIGHT SLIDER CONTENT-->
+
+
+<!-- MAIN EFFECT -->
+<script type="text/javascript" src="assets/js/preloader.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/load.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+
+
+</body>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map('map');
+    var poi = new BMap.Point(116.403694, 39.927552);
+    map.centerAndZoom(poi, 12);
+    map.enableScrollWheelZoom();
+
+
+    // 覆盖区域图层测试
+    map.addTileLayer(new BMap.PanoramaCoverageLayer());
+
+    var stCtrl = new BMap.PanoramaControl(); //构造全景控件
+    stCtrl.setOffset(new BMap.Size(10, 60));
+    map.addControl(stCtrl);//添加全景控件
+    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+
+
+    //绘图功能
+    var overlays = [];
+    var overlaycomplete = function (e) {
+        overlays.push(e.overlay);
+    };
+    var styleOptions = {
+        strokeColor: "red",    //边线颜色。
+        fillColor: "red",      //填充颜色。当参数为空时，圆形将没有填充效果。
+        strokeWeight: 3,       //边线的宽度，以像素为单位。
+        strokeOpacity: 0.8,	   //边线透明度，取值范围0 - 1。
+        fillOpacity: 0.6,      //填充的透明度，取值范围0 - 1。
+        strokeStyle: 'solid' //边线的样式，solid或dashed。
+    }
+    //实例化鼠标绘制工具
+    var drawingManager = new BMapLib.DrawingManager(map, {
+        isOpen: false, //是否开启绘制模式
+        enableDrawingTool: true, //是否显示工具栏
+        drawingToolOptions: {
+            anchor: BMAP_ANCHOR_TOP_RIGHT, //位置
+            offset: new BMap.Size(255, 5), //偏离值
+        },
+        circleOptions: styleOptions, //圆的样式
+        // polylineOptions: styleOptions, //线的样式
+        // polygonOptions: styleOptions, //多边形的样式
+        // rectangleOptions: styleOptions //矩形的样式
+    });
+    //添加鼠标绘制工具监听事件，用于获取绘制结果
+    drawingManager.addEventListener('overlaycomplete', overlaycomplete);
+    function clearAll() {
+        for (var i = 0; i < overlays.length; i++) {
+            map.removeOverlay(overlays[i]);
+        }
+        overlays.length = 0
+    }
+
+    var menu = new BMap.ContextMenu();
+    var txtMenuItem = [
+        {
+            text: '人群触达',
+            callback: function () {
+                fn()
+            }
+        },
+        {
+            text: '人群透视',
+            callback: function () {
+                pagetz1()
+            }
+        },
+        {
+            text: '人群营销',
+            callback: function () {
+                pagetz()
+            }
+        }
+    ];
+    for (var i = 0; i < txtMenuItem.length; i++) {
+        menu.addItem(new BMap.MenuItem(txtMenuItem[i].text, txtMenuItem[i].callback, 100));
+    }
+    map.addContextMenu(menu);
+
+    //人群营销页面跳转
+    function pagetz() {
+        var a = window.confirm("点击“确定”对选择的人群营销！" + "\n" + "点击“取消”不对选定人群营销！");
+        if (a == true) {
+            window.location.href = "newmarketing.html";
+        }
+        else {
+        }
+        // alert("是否对选择的人群营销？");
+        //window.location.href="newmarketing.html";
+    }
+
+    //人群透视界面跳转
+    function pagetz1() {
+        window.location.href = "action.html";
+    }
+
+    //短信触达窗口弹出
+
+    function fn() {
+        document.getElementById("yin").click();
+    }
+
+
+    //初始化模板选择的下拉框
+    var sel = document.getElementById('stylelist');
+    for (var key in mapstyles) {
+        var style = mapstyles[key];
+        var item = new Option(style.title, key);
+        sel.options.add(item);
+    }
+
+    window.map = map;
+    changeMapStyle('normal')
+    sel.value = 'normal';
+
+    function changeMapStyle(style) {
+        map.setMapStyle({style: style});
+        $('#desc').html(mapstyles[style].desc);
+    }
+
+    // 用经纬度设置地图中心点
+    function theLocation() {
+        if (document.getElementById("longitude").value != "" && document.getElementById("latitude").value != "") {
+            map.clearOverlays();
+            var new_point = new BMap.Point(document.getElementById("longitude").value, document.getElementById("latitude").value);
+            var marker = new BMap.Marker(new_point);  // 创建标注
+            map.addOverlay(marker);              // 将标注添加到地图中
+            map.panTo(new_point);
+        }
+    }
+
+
+    //麻点图层
+    var customLayer;
+    function addCustomLayer(keyword) {
+        if (customLayer) {
+            map.removeTileLayer(customLayer);
+        }
+        customLayer = new BMap.CustomLayer({
+            geotableId: 30960,
+            q: '', //检索关键字
+            tags: '', //空格分隔的多字符串
+            filter: '' //过滤条件,参考http://developer.baidu.com/map/lbs-geosearch.htm#.search.nearby
+        });
+        map.addTileLayer(customLayer);
+        customLayer.addEventListener('hotspotclick', callback);
+    }
+    function callback(e)//单击热点图层
+    {
+        var customPoi = e.customPoi;//poi的默认字段
+        var contentPoi = e.content;//poi的自定义字段
+        var content = '<p style="width:280px;margin:0;line-height:20px;">地址：' + customPoi.address + '<br/>价格:' + contentPoi.dayprice + '元' + '</p>';
+        var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+            title: customPoi.title, //标题
+            width: 290, //宽度
+            height: 40, //高度
+            panel: "panel", //检索结果面板
+            enableAutoPan: true, //自动平移
+            enableSendToPhone: true, //是否显示发送到手机按钮
+            searchTypes: [
+                BMAPLIB_TAB_SEARCH,   //周边检索
+                BMAPLIB_TAB_TO_HERE,  //到这里去
+                BMAPLIB_TAB_FROM_HERE //从这里出发
+            ]
+        });
+        var point = new BMap.Point(customPoi.point.lng, customPoi.point.lat);
+        searchInfoWindow.open(point);
+    }
+    document.getElementById("open").onclick = function () {
+        addCustomLayer();
+    };
+    document.getElementById("open").click();
+    document.getElementById("close").onclick = function () {
+        if (customLayer) {
+            map.removeTileLayer(customLayer);
+        }
+    };
+
+
+    // 创建CityList对象，并放在citylist_container节点内
+    var myCl = new BMapLib.CityList({container: "citylist_container", map: map});
+
+    // 给城市点击时，添加相关操作
+    myCl.addEventListener("cityclick", function (e) {
+        // 修改当前城市显示
+        document.getElementById("curCity").innerHTML = e.name;
+
+        // 点击后隐藏城市列表
+        document.getElementById("cityList").style.display = "none";
+    });
+    // 给“更换城市”链接添加点击操作
+    document.getElementById("curCityText").onclick = function () {
+        var cl = document.getElementById("cityList");
+        if (cl.style.display == "none") {
+            cl.style.display = "";
+        } else {
+            cl.style.display = "none";
+        }
+    };
+    // 给城市列表上的关闭按钮添加点击操作
+    document.getElementById("popup_close").onclick = function () {
+        var cl = document.getElementById("cityList");
+        if (cl.style.display == "none") {
+            cl.style.display = "";
+        } else {
+            cl.style.display = "none";
+        }
+    };
+
+
+</script>
+
+</html>
+
+

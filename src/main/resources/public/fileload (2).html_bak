@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery treetable</title>
+    <link rel="stylesheet" href="assets/js/tree/treetable/stylesheets/screen.css" media="screen" />
+    <link rel="stylesheet" href="assets/js/tree/treetable/stylesheets/jquery.treetable.css">
+    <link rel="stylesheet" href="assets/js/tree/treetable/stylesheets/jquery.treetable.theme.default.css">
+    <style type="text/css">
+        table{font-size:16px;}
+        table.treetable thead tr th,table.treetable tbody tr td{padding:10px 1em;}
+        table.treetable tbody tr td{border-top:1px solid #ccc;}
+        table tr:hover{background:#F7F6A5 !important;}
+        table td a.del{color:#f00;}
+        table td a.add{color:green;}
+    </style>
+</head>
+<body>
+<div id="main">
+    <h1>jQuery treetable</h1>
+
+    <p><b><a href="http://plugins.jquery.com/treetable">Download</a> the latest release from the jQuery Plugin Registry or grab the <a href="https://github.com/ludo/jquery-treetable">source code</a> from Github.</b> Please <a href="https://github.com/ludo/jquery-treetable/issues">report issues</a> through Github issues. This plugin is released under both the MIT and the GPLv2 license by <a href="http://ludovandenboom.com">Ludo van den Boom</a>.</p>
+
+    <table id="example-basic">
+        <caption>Basic jQuery treetable Example</caption>
+        <thead>
+        <tr>
+            <th>Tree column</th>
+            <th>Additional data</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-node-id="0">
+            <td><span class='folder'></span>Node 1: Click on the icon in front of me to expand this branch.</td>
+            <td>I live in the second column.</td>
+            <td><a href="#" class="del">删除</a> <a href="#" class="add">添加子节点</a></td>
+        </tr>
+        <!--<tr data-node-id="12" data-parent-id="1">
+            <td><span class='folder'></span>Node 1.1: Look, I am a table row <em>and</em> I am part of a tree!</td>
+            <td>Interesting.</td>
+            <td><a href="#" class="del">删除</a> <a href="#" class="add">添加子节点</a></td>
+        </tr>
+        <tr data-node-id="13" data-parent-id="12">
+            <td><span class='file'></span>Node 1.1.1: I am part of the tree too!</td>
+            <td>That's it!</td>
+            <td><a href="#" class="del">删除</a> <a href="#" class="add">添加子节点</a></td>
+        </tr>
+        <tr data-node-id="14" data-parent-id="1">
+            <td><span class='file'></span>Node 1.2: Look, I am a table row <em>and</em> I am part of a tree!</td>
+            <td>Interesting.</td>
+            <td><a href="#" class="del">删除</a> <a href="#" class="add">添加子节点</a></td>
+        </tr>
+        <tr data-node-id="2">
+            <td><span class='file'></span>Node 2: I am another root node, but without children</td>
+            <td>Hurray!</td>
+            <td><a href="#" class="del">删除</a> <a href="#" class="add">添加子节点</a></td>
+        </tr>-->
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript" src="assets/js/jquery.2.1.1.js"></script>
+<script src="assets/js/tree/treetable/vendor/jquery-ui.js"></script>
+<script src="assets/js/tree/treetable/javascripts/src/jquery.treetable.js"></script>
+<script src="assets/js/tree/treetable/javascripts/src/treeTable.js"></script>
+
+<script type="text/javascript">
+    com_github_culmat_jsTreeTable.register(this)
+
+    treeTable($('#example-basic'))
+    var counter = 100;
+    function getJSON(id){
+        /*var data='';
+        $.ajax({
+
+            async:false,
+            url:"/files",
+            dataType:"json",
+            success:function(result){
+                // alert(result);
+                data=result;
+                return result;
+                // alert(data2);
+            },
+            error:function (){
+                alert("请求失败");
+            }
+
+        });
+        return data;*/
+        return [{"name":"节点" + counter,id:counter++,leaf:true},
+            {"name":"节点" + counter,id:counter++,leaf:false},
+            {"name":"节点" + counter,id:counter++,leaf:true}]
+    }
+    function loadHtml(id){
+        var data = getJSON(id);
+        var str = '';
+        $.each(data,function(i,item){
+            str += '<tr data-node-id="' + item.id + '" data-parent-id="'+item.creater+'"  data-tt-branch="' + (item.leaf ? "false" : "true")+ '">' +
+                    '<td>' +
+                    (item.leaf ? '<span class="file"></span>' :'<span class="folder"></span>') +
+                    item.name + '</td>' +
+                    '<td>(' +  item.name + '</td>)' +
+                    '<td><a href="#" class="del">删除</a> <a href="#" class="add">添加子节点</a></td>' +
+                    '</tr>';
+        });
+        return str;
+    }
+    $(function(){
+        $("#example-basic").treetable({
+            nodeIdAttr: "nodeId",
+            parentIdAttr: "parentId",
+            stringCollapse: "收起",
+            stringExpand: "展开",
+            expandable: false,
+
+            //展开
+            onNodeExpand: function(){
+                var node = this;
+                //alert(node.id);
+                //是否已经加载
+                if(node.children && !node.children.length ){
+                    var html = loadHtml(node.id);
+                  //  alert(node.id);
+
+                    $("#example-basic").treetable("loadBranch",node,html);
+                }
+
+
+            }
+        }).on("click",".del",function(e){
+            e.preventDefault();
+            var id = $(this).closest("tr").data("node-id");
+            $("#example-basic").treetable("removeNode",id);
+        }).on("click",".add",function(e){
+            e.preventDefault();
+            var id = $(this).closest("tr").data("node-id");
+            //alert(id);
+            var html = loadHtml(id);
+            var node = $("#example-basic").treetable("node",id);
+
+            $("#example-basic").treetable("loadBranch",node,html);
+
+            //修改节点图标
+            $(this).closest("tr").find("td .file").removeClass("file").addClass("folder");
+
+        });
+    })
+</script>
+</body>
+</html>
+

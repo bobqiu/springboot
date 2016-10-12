@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>SearchUdata 1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/loader-style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <!-- <link rel="stylesheet" href="assets/js/tree/jquery.treeview.css">
+     <link rel="stylesheet" href="../red-treeview.css">
+
+     <link rel="stylesheet" href="assets/js/tree/treetable/stylesheets/jquery.treetable.css">
+     <link rel="stylesheet" href="assets/js/tree/treetable/stylesheets/jquery.treetable.theme.default.css">
+
+     <link href="assets/js/tree/tabelizer/tabelizer.min.css" media="all" rel="stylesheet" type="text/css">-->
+
+
+    <link rel="stylesheet" href="assets/css/zTreeStyle/metro.css">
+    <!--<script type="text/javascript" src="assets/js/jquery-1.4.4.min.js"></script>-->
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.ztree.all-3.5.min.js"></script>
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/minus.png">
+
+
+</head>
+
+<body>
+<div id="awwwards" class="right black"><a href="tree.html" target="_blank">best websites of the world</a></div>
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+<!-- TOP NAVBAR -->
+<nav role="navigation" class="navbar navbar-static-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle"
+                    type="button">
+                <span class="entypo-menu"></span>
+            </button>
+            <button class="navbar-toggle toggle-menu-mobile toggle-left" type="button">
+                <span class="entypo-list-add"></span>
+            </button>
+
+
+            <div id="logo-mobile" class="visible-xs">
+                <h1>SearchUdata<span>v1.0</span></h1>
+            </div>
+
+        </div>
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:20px;"
+                                                                                  class="icon-conversation"></i>
+                        <div class="noft-red">23</div>
+                    </a>
+
+
+                    <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/1.jpg">李常在 <b>Just Now</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/women/1.jpg">邱波 <b>3 Min Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/2.jpg">赵新志 <b>2 Hours Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/3.jpg"><i>龙通彬</i> <b>1 Day
+                                Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle"
+                                     src="http://api.randomuser.me/portraits/thumb/men/4.jpg"><i>张阳</i> <b>2 Mounth
+                                Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>查看所有消息</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:19px;"
+                                                                                  class="icon-warning tooltitle"></i>
+                        <div class="noft-green">5</div>
+                    </a>
+                    <ul style="margin: 12px 0 0 0;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <span style="background:#DF2135" class="noft-icon maki-bus"></span><i>From Station</i>
+                                <b>01B</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#AB6DB0" class="noft-icon maki-ferry"></span><i>Departing at</i>
+                                <b>9:00 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#FFA200" class="noft-icon maki-aboveground-rail"></span><i>Delay
+                                for</i> <b>09 Min</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#86C440" class="noft-icon maki-airport"></span><i>Take of</i>
+                                <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#0DB8DF" class="noft-icon maki-bicycle"></span><i>Take of</i>
+                                <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>查看所有通知</div>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;"
+                                   class="icon-help tooltitle"></i></a>
+                </li>
+
+            </ul>
+            <div id="nt-title-container" class="navbar-left running-text visible-lg">
+                <ul class="date-top">
+                    <li class="entypo-calendar" style="margin-right:5px"></li>
+                    <li id="Date"></li>
+
+
+                </ul>
+
+                <ul id="digital-clock" class="digital">
+                    <li class="entypo-clock" style="margin-right:5px"></li>
+                    <li class="hour"></li>
+                    <li>:</li>
+                    <li class="min"></li>
+                    <li>:</li>
+                    <li class="sec"></li>
+                    <li class="meridiem"></li>
+                </ul>
+                <ul id="nt-title">
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;北京&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;上海&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; Tonight- 72 °F (22.2 °C)
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;广州&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;深圳&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Frankurt&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                </ul>
+            </div>
+
+            <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" class="admin-pic img-circle" src="lander.jpg">Hi, zhouchong <b class="caret"></b>
+                    </a>
+                    <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
+                        <li>
+                            <a href="#">
+                                <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="entypo-vcard"></span>&#160;&#160;Account Setting</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="entypo-lifebuoy"></span>&#160;&#160;Help</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="http://themeforest.net/item/apricot-navigation-admin-dashboard-template/7664475?WT.ac=category_item&WT.z_author=themesmile">
+                                <span class="entypo-basket"></span>&#160;&#160; Purchase</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="icon-gear"></span>&#160;&#160;Setting</a>
+                    <ul role="menu" class="dropdown-setting dropdown-menu">
+
+                        <li class="theme-bg">
+                            <div id="button-bg"></div>
+                            <div id="button-bg2"></div>
+                            <div id="button-bg3"></div>
+                            <div id="button-bg5"></div>
+                            <div id="button-bg6"></div>
+                            <div id="button-bg7"></div>
+                            <div id="button-bg8"></div>
+                            <div id="button-bg9"></div>
+                            <div id="button-bg10"></div>
+                            <div id="button-bg11"></div>
+                            <div id="button-bg12"></div>
+                            <div id="button-bg13"></div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="hidden-xs">
+                    <a class="toggle-left" href="#">
+                        <span style="font-size:20px;" class="entypo-list-add"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- /END OF TOP NAVBAR -->
+
+<!-- SIDE MENU -->
+<div id="skin-select">
+    <div id="logo">
+        <h1>SUdata DMP<span>v1.0</span></h1>
+    </div>
+
+    <a id="toggle">
+        <span class="entypo-menu"></span>
+    </a>
+    <div class="dark">
+        <form action="#">
+                <span>
+                    <input type="text" name="search" value="" class="search rounded id_search"
+                           placeholder="Search Menu..." autofocus="">
+                </span>
+        </form>
+    </div>
+
+    <div class="search-hover">
+        <form id="demo-2">
+            <input type="search" placeholder="Search Menu..." class="id_search">
+        </form>
+    </div>
+
+    <div class="skin-part">
+        <div id="tree-wrap">
+            <div class="side-bar">
+                <ul class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="widget-menu"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="#" title="标签管理">
+                            <i class="icon-document-edit"></i>
+                            <span>标签管理</span>
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="blog-list.html" title="Blog List"><i
+                                        class="entypo-doc-text"></i><span>Blog List</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="blog-detail.html" title="Blog Detail"><i
+                                        class="entypo-newspaper"></i><span>Blog Details</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="social.html" title="数据资产管理">
+                            <i class="icon-feed"></i>
+                            <span>数据资产管理</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="media.html" title="应用分析">
+                            <i class="icon-camera"></i>
+                            <span>应用分析</span>
+
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="design-kit"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="Search Udata/samples/index.html" title="应用分析仪表盘">
+                            <i class="icon-window"></i>
+                            <span>应用分析仪表盘</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="mail.html" title="Mail">
+                            <i class="icon-mail"></i>
+                            <span>mail</span>
+                            <div class="noft-blue">289</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="icon.html" title="Icons">
+                            <i class="icon-preview"></i>
+                            <span>Icons</span>
+                            <div class="noft-blue" style="display: inline-block; float: none;">New</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip" href="#" title="Extra Pages">
+                            <i class="icon-document-new"></i>
+                            <span>Extra Page</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="blank_page.html" title="Blank Page"><i
+                                        class="icon-media-record"></i><span>Blank Page</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="profile.html" title="Profile Page"><i
+                                        class="icon-user"></i><span>Profile Page</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="invoice.html" title="Invoice"><i
+                                        class="entypo-newspaper"></i><span>Invoice</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="pricing_table.html" title="Pricing Table"><i
+                                        class="fontawesome-money"></i><span>Pricing Table</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="time-line.html" title="Time Line"><i
+                                        class="entypo-clock"></i><span>Time Line</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2" href="404.html" title="404 Error Page"><i
+                                        class="icon-thumbs-down"></i><span>404 Error Page</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2" href="500.html" title="500 Error Page"><i
+                                        class="icon-thumbs-down"></i><span>500 Error Page</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2" href="lock-screen.html" title="Lock Screen"><i
+                                        class="icon-lock"></i><span>Lock Screen</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip " href="login.html" title="login">
+                            <i class="icon-download"></i>
+                            <span>Login</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <ul id="menu-showhide" class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="component"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a class="tooltip-tip" href="#" title="UI Element">
+                            <i class="icon-monitor"></i>
+                            <span>UI Element</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="element.html" title="Element"><i
+                                        class="icon-attachment"></i><span>Element</span></a>
+                            </li>
+                            <li><a class="tooltip-tip2 ajax-load" href="button.html" title="Button"><i
+                                    class="icon-view-list-large"></i><span>Button</span>
+                                <div class="noft-blue-number">10</div>
+                            </a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="wizard.html" title="Tab & Accordion"><i
+                                        class="icon-folder"></i><span>Wizard</span>
+                                    <div class="noft-purple-number">3</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="calendar.html" title="Calender"><i
+                                        class="icon-calendar"></i><span>Calendar</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="tree.html" title="Tree View"><i
+                                        class="icon-view-list"></i><span>Tree View</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="grids.html" title="Grids"><i
+                                        class="icon-menu"></i><span>Grids</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="chart.html" title="Chart"><i
+                                        class="icon-graph-pie"></i><span>Chart</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip ajax-load" href="typhography.html" title="Typhoghrapy">
+                                    <i class="icon-information"></i>
+                                    <span>Typhoghrapy</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="Form">
+                            <i class="icon-document"></i>
+                            <span>Form</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="form-element.html" title="Form Elements"><i
+                                        class="icon-document-edit"></i><span>Form Elements</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="andvance-form.html" title="Andvance Form"><i
+                                        class="icon-map"></i><span>Andvance Form</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="text-editor.html" title="Text Editor"><i
+                                        class="icon-code"></i><span>Text Editor</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="file-upload.html" title="File Upload"><i
+                                        class="icon-upload"></i><span>File Upload</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="Tables">
+                            <i class="icon-view-thumb"></i>
+                            <span>Tables</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="table-static.html" title="Table Static"><i
+                                        class="entypo-layout"></i><span>Table Static</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="table-dynamic.html" title="Table Dynamic"><i
+                                        class="entypo-menu"></i><span>Table Dynamic</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="map.html" title="Map">
+                            <i class="icon-location"></i>
+                            <span>Map</span>
+
+                        </a>
+                    </li>
+                </ul>
+
+
+                <div class="side-dash">
+                    <h3>
+                        <span>Device</span>
+                    </h3>
+                    <ul class="side-dashh-list">
+                        <li>Avg. Traffic
+                                <span>25k<i style="color:#44BBC1;" class="fa fa-arrow-circle-up"></i>
+                                </span>
+                        </li>
+                        <li>Visitors
+                                <span>80%<i style="color:#AB6DB0;" class="fa fa-arrow-circle-down"></i>
+                                </span>
+                        </li>
+                        <li>Convertion Rate
+                                <span>13m<i style="color:#19A1F9;" class="fa fa-arrow-circle-up"></i>
+                                </span>
+                        </li>
+                    </ul>
+                    <h3>
+                        <span>Traffic</span>
+                    </h3>
+                    <ul class="side-bar-list">
+                        <li>Avg. Traffic
+                            <div class="linebar">5,7,8,9,3,5,3,8,5</div>
+                        </li>
+                        <li>Visitors
+                            <div class="linebar2">9,7,8,9,5,9,6,8,7</div>
+                        </li>
+                        <li>Convertion Rate
+                            <div class="linebar3">5,7,8,9,3,5,3,8,5</div>
+                        </li>
+                    </ul>
+                    <h3>
+                        <span>Visitors</span>
+                    </h3>
+                    <div id="g1" style="height:180px" class="gauge"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF SIDE MENU -->
+
+
+<!--  PAPER WRAP -->
+<div class="wrap-fluid">
+    <div class="container-fluid paper-wrap bevel tlbr">
+
+
+        <!-- CONTENT -->
+        <!--TITLE -->
+        <div class="row">
+            <div id="paper-top">
+                <div class="col-sm-3">
+                    <h2 class="tittle-content-header">
+                        <i class="icon-view-list"></i>
+                            <span>Tree View
+                            </span>
+                    </h2>
+
+                </div>
+
+                <div class="col-sm-7">
+                    <div class="devider-vertical visible-lg"></div>
+                    <div class="tittle-middle-header">
+
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <span class="tittle-alert entypo-info-circled"></span>
+                            欢迎回来,&nbsp;
+                            <strong>周翀!</strong>&nbsp;&nbsp;你最近登入的时间是 昨天下午, 16:54 PM
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="col-sm-2">
+                    <div class="devider-vertical visible-lg"></div>
+                    <div class="btn-group btn-wigdet pull-right visible-lg">
+                        <div class="btn">
+                            Widget
+                        </div>
+                        <button data-toggle="dropdown" class="btn dropdown-toggle" type="button">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul role="menu" class="dropdown-menu">
+                            <li>
+                                <a href="#">
+                                    <span class="entypo-plus-circled margin-iconic"></span>Add New</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="entypo-heart margin-iconic"></span>Favorite</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="entypo-cog margin-iconic"></span>Setting</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--/ TITLE -->
+
+        <!-- BREADCRUMB -->
+        <ul id="breadcrumb">
+            <li>
+                <span class="entypo-home"></span>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1">UI Element</a>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1">Tree View</a>
+            </li>
+            <li class="pull-right">
+                <div class="input-group input-widget">
+
+                    <input style="border-radius:15px" type="text" placeholder="Search..." class="form-control">
+                </div>
+            </li>
+        </ul>
+
+        <!-- END OF BREADCRUMB -->
+
+
+        <div class="content-wrap">
+            <div class="row">
+
+
+                <div class="col-sm-6">
+
+                    <div class="nest" id="treeClose">
+                        <div class="title-alt">
+                            <h6>Sample 1 - default<a class="pull-right btn btn-info filter-api" data-toggle="modal"
+                                                     data-target="#myModal"><i class="entypo-pencil"></i>&nbsp;&nbsp;新建营销人群</a>
+                            </h6>
+
+                            <div class="titleClose">
+                                <a class="gone" href="#treeClose">
+                                    <span class="entypo-cancel"></span>
+                                </a>
+                            </div>
+                            <div class="titleToggle">
+                                <a class="nav-toggle-alt" href="#tree">
+                                    <span class="entypo-up-open"></span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!--<div class="body-nest" id="tree">-->
+                        <div class="body-nest">
+
+                            <div class="row">
+
+
+                                <div class="col-sm-6">
+
+                                    <ul id="tree" class="ztree filetree" style="width:560px; overflow:auto;"></ul>
+                                    <!--<ul id="browser" class="filetree">
+                                        <li>
+                                            <img alt="" src="assets/js/tree/images/folder.gif">123
+                                            <ul>
+                                                <li>blabla
+                                                    <img alt="" src="assets/js/tree/images/file.gif">
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <img alt="" src="assets/js/tree/images/folder.gif">
+                                            <ul>
+                                                <li>
+                                                    <img alt="" src="assets/js/tree/images/folder.gif">
+                                                    <ul id="folder21">
+                                                        <li>
+                                                            <img alt="" src="assets/js/tree/images/file.gif">more text</li>
+                                                        <li>and here, too
+                                                            <img alt="" src="assets/js/tree/images/file.gif">
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <img alt="" src="assets/js/tree/images/file.gif">
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="closed">this is closed!
+                                            <img alt="" src="assets/js/tree/images/folder.gif">
+                                            <ul>
+                                                <li>
+                                                    <img alt="" src="assets/js/tree/images/file.gif">
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <img alt="" src="assets/js/tree/images/file.gif">
+                                        </li>
+                                    </ul>-->
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- FOOTER -->
+        <div class="footer-space"></div>
+        <div id="footer">
+            <div class="devider-footer-left"></div>
+            <div class="time">
+                <p id="spanDate">
+                <p id="clock">
+            </div>
+            <div class="copyright">技术支持
+                <span class="entypo-heart"></span>Contact from <a href="index.html" title="SearchUdata DMP"
+                                                                  target="_blank">umessage.com.cn</a> All Rights
+                Reserved
+            </div>
+            <div class="devider-footer"></div>
+
+        </div>
+        <!-- / END OF FOOTER -->
+
+    </div>
+</div>
+<!--  END OF PAPER WRAP -->
+<!-- RIGHT SLIDER CONTENT -->
+<div class="sb-slidebar sb-right">
+    <div class="right-wrapper">
+        <div class="row">
+            <h3>
+                <span><i class="entypo-gauge"></i>&nbsp;&nbsp;MAIN WIDGET</span>
+            </h3>
+            <div class="col-sm-12">
+
+                <div class="widget-knob">
+                        <span class="chart" style="position:relative" data-percent="86">
+                            <span class="percent"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>Distance traveled</b>
+                    <br>
+                    <i>86% to the check point</i>
+                </div>
+
+                <div class="widget-knob">
+                        <span class="speed-car" style="position:relative" data-percent="60">
+                            <span class="percent2"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>The average speed</b>
+                    <br>
+                    <i>30KM/h avarage speed</i>
+                </div>
+
+
+                <div class="widget-knob">
+                        <span class="overall" style="position:relative" data-percent="25">
+                            <span class="percent3"></span>
+                        </span>
+                </div>
+                <div class="widget-def">
+                    <b>Overall result</b>
+                    <br>
+                    <i>30KM/h avarage Result</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:0;" class="right-wrapper">
+        <div class="row">
+            <h3>
+                <span><i class="entypo-chat"></i>&nbsp;&nbsp;CHAT</span>
+            </h3>
+            <div class="col-sm-12">
+                <span class="label label-warning label-chat">Online</span>
+                <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/20.jpg">
+                                </span><b>Dave Junior</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/21.jpg">
+                                </span><b>Kenneth Lucas</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/22.jpg">
+                                </span><b>Heidi Perez</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <span class="label label-chat">Offline</span>
+                <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/23.jpg">
+                                </span><b>Dave Junior</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/women/24.jpg">
+                                </span><b>Kenneth Lucas</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/25.jpg">
+                                </span><b>Heidi Perez</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/women/25.jpg">
+                                </span><b>Kenneth Lucas</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle"
+                                         src="http://api.randomuser.me/portraits/thumb/men/26.jpg">
+                                </span><b>Heidi Perez</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END OF RIGHT SLIDER CONTENT-->
+
+
+<!-- MAIN EFFECT -->
+<script type="text/javascript" src="assets/js/preloader.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/load.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+
+
+<!-- /MAIN EFFECT -->
+<!--<script src="assets/js/tree/lib/jquery.cookie.js" type="text/javascript"></script>
+<script src="assets/js/tree/jquery.treeview.js" type="text/javascript"></script>
+
+
+<script src="assets/js/tree/tabelizer/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="assets/js/tree/tabelizer/jquery.tabelizer.js"></script>
+
+<script src="assets/js/tree/treetable/vendor/jquery-ui.js"></script>
+<script src="assets/js/tree/treetable/javascripts/src/jquery.treetable.js"></script>-->
+
+<!-- <script type="text/javascript">
+ $(function() {
+     $("#browser, #browser2").treeview({
+         animated: "fast",
+         collapsed: false,
+         unique: true,
+         persist: "cookie",
+         toggle: function() {
+             window.console && console.log("%o was toggled", this);
+         }
+     });
+ });
+ </script>
+
+ <script>
+ $("#example-basic").treetable({
+     expandable: true
+ });
+
+ $("#example-basic-static").treetable();
+
+ $("#example-basic-expandable").treetable({
+     expandable: true
+ });
+
+ $("#example-advanced").treetable({
+     expandable: true
+ });
+
+ // Highlight selected row
+ $("#example-advanced tbody").on("mousedown", "tr", function() {
+     $(".selected").not(this).removeClass("selected");
+     $(this).toggleClass("selected");
+ });
+
+ // Drag & Drop Example Code
+ $("#example-advanced .file, #example-advanced .folder").draggable({
+     helper: "clone",
+     opacity: .75,
+     refreshPositions: true, // Performance?
+     revert: "invalid",
+     revertDuration: 300,
+     expandable: true,
+     scroll: true
+ });
+
+ $("#example-advanced .folder").each(function() {
+     $(this).parents("#example-advanced tr").droppable({
+         accept: ".file, .folder",
+         drop: function(e, ui) {
+             var droppedEl = ui.draggable.parents("tr");
+             $("#example-advanced").treetable("move", droppedEl.data("ttId"), $(this).data("ttId"));
+         },
+         hoverClass: "accept",
+         over: function(e, ui) {
+             var droppedEl = ui.draggable.parents("tr");
+             if (this != droppedEl[0] && !$(this).is(".expanded")) {
+                 $("#example-advanced").treetable("expandNode", $(this).data("ttId"));
+             }
+         }
+     });
+ });
+
+ $("form#reveal").submit(function() {
+     var nodeId = $("#revealNodeId").val()
+
+     try {
+         $("#example-advanced").treetable("reveal", nodeId);
+     } catch (error) {
+         alert(error.message);
+     }
+
+     return false;
+ });
+ </script>
+
+ <script>
+ $(document).ready(function() {
+     var table1 = $('#table1').tabelize({
+         /*onRowClick : function(){
+         alert('test');
+     }*/
+         fullRowClickable: true,
+         onReady: function() {
+             console.log('ready');
+         },
+         onBeforeRowClick: function() {
+             console.log('onBeforeRowClick');
+         },
+         onAfterRowClick: function() {
+             console.log('onAfterRowClick');
+         },
+     });
+ });
+ </script>-->
+
+
+<script>
+    var zTree;
+    var demoIframe;
+
+    var newCount = 1;
+    function addHoverDom(treeId, treeNode) {
+        var sObj = $("#" + treeNode.tId + "_span");
+        if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+        /* var addStr = "<span class='button remove' id='removeBtn_" + treeNode.tId
+         + "' title='add node' onfocus='this.blur();'></span>";
+
+         addStr += "<span class='button add' id='addBtn_" + treeNode.tId + "'></span>";
+         addStr += "<span class='button edit' id='editBtn_" + treeNode.tId + "'></span>";*/
+        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+                + "' title='添加' onfocus='this.blur();'></span>";
+        addStr += "<span class='button addrole' id='addRoleBtn_" + treeNode.tId + "'><a class='button' data-toggle='modal' data-target='#myModal'>R</a></span>";
+        sObj.after(addStr);
+        var btn = $("#addBtn_" + treeNode.tId);
+        if (btn) {
+            if (btn) btn.bind("click", function () {
+                var zTree = $.fn.zTree.getZTreeObj("tree");
+                var name = "new node" + (newCount++)
+                zTree.addNodes(treeNode, {id: "", pId: treeNode.id, name: name});
+                var nodeId = 1000 + newCount;
+                zTree.editName(zTree.getNodeByParam("name", name, null));
+                /* $.ajax({
+                 type: "POST",
+                 url: "http://localhost:8080/per", //此处是需要访问后台的哪个文件的哪个方法
+                 data: {"pid" :treeNode.id,"name":"new node"},
+                 dataType: 'json', //固定的格式，不需要太多关注
+                 success: function(result){
+                 alert(result.message);
+                 var newID = result.id; //获取新添加的节点Id
+                 zTree.addNodes(treeNode, {id:newID, pId:treeNode.id, name:name}); //页面上添加节点
+                 var node = zTree.getNodeByParam("id", newID, null); //根据新的id找到新添加的节点
+                 zTree.selectNode(node); //让新添加的节点处于选中状态
+
+                 },
+                 error: function(result){
+                 alert("error" + result);
+                 }
+                 });*/
+
+                /* alert(1000+newCount);
+                 alert(treeNode.id+":"+treeNode.pId+":"+treeNode.name);*/
+                //alert(treeNode.getIndex());
+
+                return false;
+            });
+        }
+
+    }
+    ;
+
+    function removeHoverDom(treeId, treeNode) {
+        $("#addRoleBtn_" + treeNode.tId).unbind().remove();
+        $("#addBtn_" + treeNode.tId).unbind().remove();
+        $("#removeBtn_" + treeNode.tId).unbind().remove();
+        $("#editBtn_" + treeNode.tId).unbind().remove();
+    }
+    ;
+
+    var setting = {
+        /*check: {
+         enable: true
+         },*/
+        view: {
+            addHoverDom: addHoverDom,
+            removeHoverDom: removeHoverDom,
+            dblClickExpand: false,
+            showLine: true,
+            selectedMulti: false
+        },
+        edit: {
+            enable: true,
+            editNameSelectAll: true,
+            showRemoveBtn: true,
+            showRenameBtn: true,
+            renameTitle: "修改",
+            removeTitle: "删除",
+            drag: {
+                isCopy: false,
+                isMove: true
+            }
+        },
+        data: {
+            simpleData: {
+                enable: true,
+                idKey: "id",
+                pIdKey: "pId",
+                rootPId: ""
+            }
+        },
+        callback: {
+            // onRemove:onRemove,//删除节点后触发，用户后台操作
+            onRename: onRename,//编辑后触发，用于操作后台
+            beforeClick: function (treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("tree");
+                if (treeNode.isParent) {
+                    zTree.expandNode(treeNode);
+                    return false;
+                } else {
+                    demoIframe.attr("src", treeNode.file + ".html");
+                    return true;
+                }
+            }
+        }
+    };
+    function onRename(e, treeId, treeNode, isCancel) {
+        alert("修改节点的id为：" + treeId + "----" + treeNode.pId + "\n修改后的名称为：" + treeNode.name);
+        operate(treeNode.id, treeNode.pId, treeNode.name);
+
+    }
+
+    function operate(id, pid, name) {
+        /* var url = "http://localhost:8080/perm";
+         var param = {"id":id,"pid" :pid,"name":name};
+         $.post(url,param,function(data){
+         if("error" == data){
+         layer.alert('对不起，你所删除的建筑信息,再被其他地方所使用,您不能删除!', 3);
+         return false;
+         }else if("success" == data){
+         layer.msg('删除成功!', 2, -1);
+         location.href =getPath()+ "/manager/peizhiManager/buildinfo/buildinfoTree.jsp";
+         }else if("syncError" == data){
+         layer.msg('删除操作失败!', 2, -1);
+         }
+         });*/
+        alert("operate id" + id + "::pid" + pid);
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/per", //此处是需要访问后台的哪个文件的哪个方法
+            data: {"id": id, "pid": pid, "name": name},
+            dataType: 'json', //固定的格式，不需要太多关注
+            success: function (result) {
+                alert(result.message);
+
+                /* if(result===true){
+                 var count=$("#sms_unread").text()-1;
+                 $("#sms_unread").text(count<=0?0:count);
+                 $("#sms_"+msgId).attr("unread","N");
+                 $("#sms_"+msgId).parent().css("font-weight","normal");
+
+                 }
+                 else if(result===false){
+
+                 }*/
+            },
+            error: function (result) {
+                alert("error" + result);
+            }
+        });
+    }
+
+
+    $(document).ready(function () {
+        var t = $("#tree");
+        t = $.fn.zTree.init(t, setting, zNodes);
+        demoIframe = $("#testIframe");
+        demoIframe.bind("load", loadReady);
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        zTree.selectNode(zTree.getNodeByParam("id", 101));
+
+    });
+
+
+    function loadReady() {
+        var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
+                htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
+                maxH = Math.max(bodyH, htmlH), minH = Math.min(bodyH, htmlH),
+                h = demoIframe.height() >= maxH ? minH : maxH;
+        if (h < 530) h = 530;
+        demoIframe.height(h);
+    }
+    var zNodes = [
+        {id: 1, pId: 0, name: "[core] 基本功能 演示", open: true},
+        {id: 101, pId: 1, name: "最简单的树 --  标准 JSON 数据", file: "core/standardData"},
+        {id: 102, pId: 1, name: "最简单的树 --  简单 JSON 数据", file: "core/simpleData"},
+        {id: 103, pId: 1, name: "不显示 连接线", file: "core/noline"},
+        {id: 104, pId: 1, name: "不显示 节点 图标", file: "core/noicon"},
+        {id: 105, pId: 1, name: "自定义图标 --  icon 属性", file: "core/custom_icon"},
+        {id: 106, pId: 1, name: "自定义图标 --  iconSkin 属性", file: "core/custom_iconSkin"},
+        {id: 107, pId: 1, name: "自定义字体", file: "core/custom_font"},
+        {id: 115, pId: 1, name: "超链接演示", file: "core/url"},
+        {id: 108, pId: 1, name: "异步加载 节点数据", file: "core/async"},
+        {id: 109, pId: 1, name: "用 zTree 方法 异步加载 节点数据", file: "core/async_fun"},
+        {id: 110, pId: 1, name: "用 zTree 方法 更新 节点数据", file: "core/update_fun"},
+        {id: 111, pId: 1, name: "单击 节点 控制", file: "core/click"},
+        {id: 112, pId: 1, name: "展开 / 折叠 父节点 控制", file: "core/expand"},
+        {id: 113, pId: 1, name: "根据 参数 查找 节点", file: "core/searchNodes"},
+        {id: 114, pId: 1, name: "其他 鼠标 事件监听", file: "core/otherMouse"},
+
+        {id: 2, pId: 0, name: "[excheck] 复/单选框功能 演示", open: false},
+        {id: 201, pId: 2, name: "Checkbox 勾选操作", file: "excheck/checkbox"},
+        {id: 206, pId: 2, name: "Checkbox nocheck 演示", file: "excheck/checkbox_nocheck"},
+        {id: 207, pId: 2, name: "Checkbox chkDisabled 演示", file: "excheck/checkbox_chkDisabled"},
+        {id: 208, pId: 2, name: "Checkbox halfCheck 演示", file: "excheck/checkbox_halfCheck"},
+        {id: 202, pId: 2, name: "Checkbox 勾选统计", file: "excheck/checkbox_count"},
+        {id: 203, pId: 2, name: "用 zTree 方法 勾选 Checkbox", file: "excheck/checkbox_fun"},
+        {id: 204, pId: 2, name: "Radio 勾选操作", file: "excheck/radio"},
+        {id: 209, pId: 2, name: "Radio nocheck 演示", file: "excheck/radio_nocheck"},
+        {id: 210, pId: 2, name: "Radio chkDisabled 演示", file: "excheck/radio_chkDisabled"},
+        {id: 211, pId: 2, name: "Radio halfCheck 演示", file: "excheck/radio_halfCheck"},
+        {id: 205, pId: 2, name: "用 zTree 方法 勾选 Radio", file: "excheck/radio_fun"},
+
+        {id: 3, pId: 0, name: "[exedit] 编辑功能 演示", open: false},
+        {id: 301, pId: 3, name: "拖拽 节点 基本控制", file: "exedit/drag"},
+        {id: 302, pId: 3, name: "拖拽 节点 高级控制", file: "exedit/drag_super"},
+        {id: 303, pId: 3, name: "用 zTree 方法 移动 / 复制 节点", file: "exedit/drag_fun"},
+        {id: 304, pId: 3, name: "基本 增 / 删 / 改 节点", file: "exedit/edit"},
+        {id: 305, pId: 3, name: "高级 增 / 删 / 改 节点", file: "exedit/edit_super"},
+        {id: 306, pId: 3, name: "用 zTree 方法 增 / 删 / 改 节点", file: "exedit/edit_fun"},
+        {id: 307, pId: 3, name: "异步加载 & 编辑功能 共存", file: "exedit/async_edit"},
+        {id: 308, pId: 3, name: "多棵树之间 的 数据交互", file: "exedit/multiTree"},
+
+        {id: 4, pId: 0, name: "大数据量 演示", open: false},
+        {id: 401, pId: 4, name: "一次性加载大数据量", file: "bigdata/common"},
+        {id: 402, pId: 4, name: "分批异步加载大数据量", file: "bigdata/diy_async"},
+        {id: 403, pId: 4, name: "分批异步加载大数据量", file: "bigdata/page"},
+
+        {id: 5, pId: 0, name: "组合功能 演示", open: false},
+        {id: 501, pId: 5, name: "冻结根节点", file: "super/oneroot"},
+        {id: 502, pId: 5, name: "单击展开/折叠节点", file: "super/oneclick"},
+        {id: 503, pId: 5, name: "保持展开单一路径", file: "super/singlepath"},
+        {id: 504, pId: 5, name: "添加 自定义控件", file: "super/diydom"},
+        {id: 505, pId: 5, name: "checkbox / radio 共存", file: "super/checkbox_radio"},
+        {id: 506, pId: 5, name: "左侧菜单", file: "super/left_menu"},
+        {id: 513, pId: 5, name: "OutLook 样式的左侧菜单", file: "super/left_menuForOutLook"},
+        {id: 507, pId: 5, name: "下拉菜单", file: "super/select_menu"},
+        {id: 509, pId: 5, name: "带 checkbox 的多选下拉菜单", file: "super/select_menu_checkbox"},
+        {id: 510, pId: 5, name: "带 radio 的单选下拉菜单", file: "super/select_menu_radio"},
+        {id: 508, pId: 5, name: "右键菜单 的 实现", file: "super/rightClickMenu"},
+        {id: 511, pId: 5, name: "与其他 DOM 拖拽互动", file: "super/dragWithOther"},
+        {id: 512, pId: 5, name: "异步加载模式下全部展开", file: "super/asyncForAll"},
+
+        {id: 6, pId: 0, name: "其他扩展功能 演示", open: false},
+        {id: 601, pId: 6, name: "隐藏普通节点", file: "exhide/common"},
+        {id: 602, pId: 6, name: "配合 checkbox 的隐藏", file: "exhide/checkbox"},
+        {id: 603, pId: 6, name: "配合 radio 的隐藏", file: "exhide/radio"}
+    ];
+    //刷新树
+    function RefreshTree() {
+        var systemCode = $("#systemCode").attr("relValue");
+        if (typeof (systemCode) != "undefined") {
+            setting1.async.url = "/Module/GetModuleTree?systemCode=" + systemCode;
+            $.fn.zTree.init($("#tree-1"), setting1);
+            _zTree = $.fn.zTree.getZTreeObj("tree-1");
+        }
+    }
+</script>
+
+<div aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1" class="modal fade bs-example-modal-lg"
+     style="display: none;" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+                    <span class="entypo-cancel"></span>
+                </button>
+                <h3 id="myLargeModalLabel" class="modal-title">选择新建营销人群方式</h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="compose_mail">
+
+                    <form role="form">
+
+                        <input tabindex="11" type="radio" id="square-radio-1" name="square-radio" checked="">
+                        <label for="square-radio-1"><H4>自定义营销人群</H4></label> <br>
+                        <H6>你可以在标签市场上寻找你想要的标签，自主完成标签的创建</H6><br> <br><br>
+                        <input tabindex="12" type="radio" id="square-radio-2" name="square-radio">
+                        <label for="square-radio-2"><H4>定制营销人群</H4></label> <br>
+                        <H6>由我们的应用专家，为您分析定制出个性化营销人群</H6><br><br> <br><br>
+
+
+                        <button class="btn" type="submit"><a href="newmarketing.html"><i class="entypo-pencil"></i>&nbsp;&nbsp;确定创建</a>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

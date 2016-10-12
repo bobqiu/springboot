@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <title>Layout</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
+          href="assets/css/bootstrap.css"/>
+</head>
+<body>
+<div class="container">
+    222222测试
+    <div layout:fragment="header">Layout
+        <p layout:fragment="header1"></p>
+    </div>
+
+    <p layout:fragment="header1"></p>
+
+    <div layout:fragment="content">Fake content</div>
+    <p>结束</p>
+</div>
+</body>
+</html>

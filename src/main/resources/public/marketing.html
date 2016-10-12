@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{mlayout}">
+<P layout:fragment="test(${username})"></P>
+<!--  PAPER WRAP -->
+<div class="wrap-fluid" layout:fragment="ringhtcontent">
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <!-- CONTENT -->
+        <!--TITLE -->
+        <div class="row">
+            <div id="paper-top">
+                <div class="col-sm-3">
+                    <h2 class="tittle-content-header">
+                        <i class="icon-view-list"></i>
+                            <span>数据标签管理
+                            </span>
+                    </h2>
+
+                </div>
+
+                <div class="col-sm-7">
+                    <div class="devider-vertical visible-lg"></div>
+                    <div class="tittle-middle-header">
+
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <span class="tittle-alert entypo-info-circled"></span>
+                            欢迎回来,&nbsp;
+                            <strong th:text="${username}">周翀!</strong>&nbsp;&nbsp;你最近登入的时间是 昨天下午, 16:54 PM
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--/ TITLE -->
+
+        <!-- BREADCRUMB -->
+        <ul id="breadcrumb">
+            <li>
+                <span class="entypo-home"></span>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1">标签聚类</a>
+            </li>
+            <li><i class="fa fa-lg fa-angle-right"></i>
+            </li>
+            <li><a href="#" title="Sample page 1">营销人群管理</a>
+            </li>
+            <li class="pull-right">
+                <div class="input-group input-widget">
+
+                    <!--input style="border-radius:15px" type="text" placeholder="Search..." class="form-control"-->
+
+
+                </div>
+            </li>
+        </ul>
+
+        <!-- END OF BREADCRUMB -->
+
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="nest" id="FilteringClose">
+                        <div class="title-alt">
+                            <h6>
+                                营销人群管理</h6>
+                            <div class="titleClose">
+                                <a class="gone" href="#FilteringClose">
+                                    <span class="entypo-cancel"></span>
+                                </a>
+                            </div>
+                            <div class="titleToggle">
+                                <a class="nav-toggle-alt" href="#Filtering">
+                                    <span class="entypo-up-open"></span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <div class="body-nest" id="Filtering">
+
+                            <div class="row" style="margin-bottom:10px;">
+                                <div class="col-sm-4">
+                                    <input class="form-control" id="filter" placeholder="查找..." type="text">
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="filter-status form-control">
+                                        <option value="active">进行中
+                                        <option value="disabled">未进行
+                                        <option value="suspended">暂停中
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+
+                                    <a href="#clear" style="margin-left:10px;"
+                                       class="pull-right btn btn-info clear-filter" title="clear filter">清除</a>
+                                    <!--a href="#api" class="pull-right btn btn-info filter-api" title="Filter using the Filter API">新建营销人群</a-->
+                                    <a class="pull-right btn btn-info filter-api" data-toggle="modal"
+                                       data-target="#myModal"><i class="entypo-pencil"></i>&nbsp;&nbsp;新建营销人群</a>
+                                    <!--div class="btn btn-info button-mail" data-toggle="modal" data-target="#myModal"><i class="entypo-pencil"></i>&nbsp;&nbsp;Compose Mail</div-->
+
+
+                                </div>
+
+                            </div>
+
+                            <table id="footable-res2" class="table-striped metro-blue" data-filter="#filter"
+                                   data-filter-text-only="true" data-page-size="12">
+                                <thead>
+                                <tr>
+                                    <th data-toggle="true">
+                                        人群名称
+                                    </th>
+                                    <th>
+                                        人群筛选条件
+                                    </th>
+                                    <th data-hide="phone,tablet">
+                                        人群数量范围
+                                    </th>
+                                    <th data-hide="phone,tablet">
+                                        到期时间
+                                    </th>
+
+                                    <th data-hide="phone">
+                                        应用状态
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>北京地区消费5次以上人群</td>
+                                    <td><a href="#">城市 北京，消费次数 >=5次</a>
+                                    </td>
+                                    <td>34,534</td>
+                                    <td data-value="78025368997">2016年9月10日</td>
+
+                                    <td data-value="1">
+                                        <span class="status-metro status-active" title="短信营销进行中">进行中</span>
+                                        <span class="status-metro status-active" title=""><a href="action.html">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>上海地区消费3次以下人群</td>
+                                    <td>城市 上海，消费次数 <3次</td>
+                                    <td><a href="#">245,667</a>
+                                    </td>
+                                    <td data-value="370961043292">2016年9月25日</td>
+                                    <td data-value="2">
+                                        <span class="status-metro status-disabled" title="H5营销未进行">未进行</span>
+                                        <span class="status-metro status-active" title=""><a href="action.html">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>广东地区消费5次以上人群</td>
+                                    <td>城市 广东，消费次数 >=5次</td>
+                                    <td>385,457</td>
+                                    <td data-value="-22133780420">2016年8月5日</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-suspended" title="短信营销暂停中">暂停中</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>江苏地区消费5次以上人群</td>
+                                    <td>城市 江苏，消费次数 >=5次</td>
+                                    <td>23,442</td>
+                                    <td data-value="250833505574">2016年8月23日</td>
+                                    <td data-value="1">
+                                        <span class="status-metro status-active" title="短信营销进行中">进行中</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>北京游戏玩家人群</td>
+                                    <td>城市 北京，消费次数 >=5次，兴趣 手游</td>
+                                    <td>798,876</td>
+                                    <td data-value="694116650726">2016年8月15日</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-suspended" title="微信暂停中">暂停中</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>北京理财人群</td>
+                                    <td><a href="#">城市 北京，消费次数 >=5次，有陆金所APP</a>
+                                    </td>
+                                    <td><a href="#">67,895</a>
+                                    </td>
+                                    <td data-value="561440464855">2016年10月5日</td>
+                                    <td data-value="2">
+                                        <span class="status-metro status-disabled" title="微信未进行">未进行</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>认知用户人群</td>
+                                    <td>近90天内有电话查询酒店机票，并在180天内没有购买行为</td>
+                                    <td>247,654</td>
+                                    <td data-value="437400551390">2016年11月5日</td>
+                                    <td data-value="2">
+                                        <span class="status-metro status-disabled" title="短信营销未进行">未进行</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>现有用户人群</td>
+                                    <td><a href="#">近90天内有购买过酒店或机票</a>
+                                    </td>
+                                    <td>124,532</td>
+                                    <td data-value="-257733999319">2016年8月5日</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-suspended" title="短信营销暂停中">暂停中</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>沉默用户人群</td>
+                                    <td>近180天内有购买酒店或机票，但近90天没有购买行为</td>
+                                    <td>789,345</td>
+                                    <td data-value="362134712000">2016年8月31日</td>
+                                    <td data-value="1">
+                                        <span class="status-metro status-active" title="短信营销进行中">进行中</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>潜在用户人群</td>
+                                    <td>目前没有查询和预订酒店机票行为，但是有可能发展成酒店机票新用户</td>
+                                    <td>1,789,765</td>
+                                    <td data-value="500874333932">2016年8月25日</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-suspended" title="短信营销暂停中">暂停中</span>
+                                        <span class="status-metro status-active" title=""><a href="#">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>新建营销人群1</td>
+                                    <td>消费500以内、行业优质人群、购物性别</td>
+                                    <td>136,567</td>
+                                    <td data-value="500874333932">2016年9月18日</td>
+                                    <td data-value="3">
+                                        <span class="status-metro status-active" title="短信营销暂停中">进行中</span>
+                                        <span class="status-metro status-active" title=""><a href="action.html">透视分析</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">修改</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">复制</a></span>
+                                        <span class="status-metro status-active" title=""><a href="#">删除</a></span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1" class="modal fade bs-example-modal-lg"
+             style="display: none;" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+                            <span class="entypo-cancel"></span>
+                        </button>
+                        <h3 id="myLargeModalLabel" class="modal-title">选择新建营销人群方式</h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="compose_mail">
+
+                            <form role="form">
+
+                                <input tabindex="11" type="radio" id="square-radio-1" name="square-radio" checked="">
+                                <label for="square-radio-1"><H4>自定义营销人群</H4></label> <br>
+                                <H6>你可以在标签市场上寻找你想要的标签，自主完成标签的创建</H6><br> <br><br>
+                                <input tabindex="12" type="radio" id="square-radio-2" name="square-radio">
+                                <label for="square-radio-2"><H4>定制营销人群</H4></label> <br>
+                                <H6>由我们的应用专家，为您分析定制出个性化营销人群</H6><br><br> <br><br>
+
+
+                                <button class="btn" type="submit"><a href="newmarketing.html"><i
+                                        class="entypo-pencil"></i>&nbsp;&nbsp;确定创建</a></button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="content-wrap">
+            <div class="page-extra">
+
+                <!-- Main content -->
+                <section class="content invoice">
+                    <!-- title row -->
+                    <div class="row">
+                        <div class="col-xs-12 invoice-header" style="background:#444888">
+                            <h2 class="page-header">
+                                <i class="fa fa-globe"></i> 营销人群投放效果
+                            </h2>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+
+
+                    <!-- Table row -->
+                    <div class="row">
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>人群名称</th>
+                                    <th>日期</th>
+                                    <th>营销人群量</th>
+                                    <th>回复量</th>
+                                    <th>成本消耗</th>
+                                    <th>成交利润</th>
+                                    <th>回报率</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>北京地区消费5次以上人群</td>
+                                    <td>2016年9月10日</td>
+                                    <td>345,34</td>
+                                    <td>7,899</td>
+                                    <td>￥3,453</td>
+                                    <td>￥9,455</td>
+                                    <td>273%</td>
+                                </tr>
+                                <tr>
+                                    <td>上海地区消费3次以下人群</td>
+                                    <td>2016年9月25日</td>
+                                    <td>245,667</td>
+                                    <td>23,453</td>
+                                    <td>￥24,566</td>
+                                    <td>￥78,997</td>
+                                    <td>321%</td>
+                                </tr>
+                                <tr>
+                                    <td>江苏地区消费5次以上人群</td>
+                                    <td>2016年8月23日</td>
+                                    <td>23,442</td>
+                                    <td>3,438</td>
+                                    <td>￥22,344</td>
+                                    <td>￥56,432</td>
+                                    <td>252%</td>
+                                </tr>
+                                <tr>
+                                    <td>沉默用户人群</td>
+                                    <td>2016年8月31日</td>
+                                    <td>789,345</td>
+                                    <td>129,563</td>
+                                    <td>￥78,934</td>
+                                    <td>￥308,234</td>
+                                    <td>390%</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <!-- accepted payments column -->
+                        <div class="col-xs-6">
+                            <p class="lead">用户支付方式:</p>
+                            <img src="assets/img/credit/visa.png" alt="Visa">
+                            <img src="assets/img/credit/mastercard.png" alt="Mastercard">
+                            <img src="assets/img/credit/american-express.png" alt="American Express">
+                            <img src="assets/img/credit/paypal2.png" alt="Paypal">
+                            <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                                当前营销人群喜好的付款方式和类型实时在线统计结果
+                            </p>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xs-6">
+                            <p class="lead">营销用户消费构成</p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <th style="width:50%">机票:（22.44%）</th>
+                                        <td>￥120,330</td>
+                                    </tr>
+                                    <tr>
+                                        <th>酒店: (6.49%)</th>
+                                        <td>￥34,780</td>
+                                    </tr>
+                                    <tr>
+                                        <th>保险:（25.09%）</th>
+                                        <td>￥134,530</td>
+                                    </tr>
+                                    <tr>
+                                        <th>流量:（0.64%）</th>
+                                        <td>￥3,450</td>
+                                    </tr>
+                                    <tr>
+                                        <th>代金券:（1.46%）</th>
+                                        <td>￥7,850</td>
+                                    </tr>
+                                    <tr>
+                                        <th>其它:（43.88%）</th>
+                                        <td>￥235,260</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total:（100%）</th>
+                                        <td>￥536,200</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-xs-12">
+                            <button class="btn btn-default" onClick="window.print();"><i class="fa fa-print"></i> 打印
+                            </button>
+                            <button class="btn btn-success pull-right"
+                                    onclick="javascript:window.location.href='marketing.html'"><i
+                                    class="fa fa-credit-card"></i> 刷新一下
+                            </button>
+                            <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i
+                                    class="fa fa-download"></i> 输出PDF
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <!-- /.content -->
+            </div>
+        </div>
+        <!---- -----------------------------------------------------------------------	>
+
+
+
+
+
+
+
+
+        <!---- -----------------------------------------------------------------------	>
+                    <!-- /END OF CONTENT -->
+
+
+        <!-- FOOTER -->
+        <div class="footer-space"></div>
+        <div id="footer">
+            <div class="devider-footer-left"></div>
+            <div class="time">
+                <p id="spanDate">
+                <p id="clock">
+            </div>
+            <div class="copyright">技术支持
+                <span class="entypo-heart"></span>Contact from <a href="index.html" title="SearchUdata DMP"
+                                                                  target="_blank">umessage.com.cn</a> All Rights
+                Reserved
+            </div>
+            <div class="devider-footer"></div>
+
+        </div>
+        <!-- / END OF FOOTER -->
+
+    </div>
+</div>
+<div layout:fragment="ringhtfooter">
+    <!-- MAIN EFFECT -->
+    <script type="text/javascript" src="assets/js/preloader.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/load.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/iCheck/jquery.icheck.js"></script>
+    <script type="text/javascript" src="assets/js/switch/bootstrap-switch.js"></script>
+
+
+    <!-- /MAIN EFFECT -->
+    <!-- GAGE -->
+    <script type="text/javascript" src="assets/js/toggle_close.js"></script>
+    <script src="assets/js/footable/js/footable.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+    <script src="assets/js/footable/js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('.footable-res').footable();
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#footable-res2').footable().bind('footable_filtering', function (e) {
+                var selected = $('.filter-status').find(':selected').text();
+                if (selected && selected.length > 0) {
+                    e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+                    e.clear = !e.filter;
+                }
+            });
+
+            $('.clear-filter').click(function (e) {
+                e.preventDefault();
+                $('.filter-status').val('');
+                $('table.demo').trigger('footable_clear_filter');
+            });
+
+            $('.filter-status').change(function (e) {
+                e.preventDefault();
+                $('table.demo').trigger('footable_filter', {
+                    filter: $('#filter').val()
+                });
+            });
+
+            $('.filter-api').click(function (e) {
+                e.preventDefault();
+
+                //get the footable filter object
+                var footableFilter = $('table').data('footable-filter');
+
+                // alert('about to filter table by "tech"');
+                //filter by 'tech'
+                //  footableFilter.filter('tech');
+
+                //clear the filter
+                // if (confirm('是否现在创建新的营销人群?')) {
+                footableFilter.clearFilter();
+                //  }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            //CHECKBOX PRETTYFY
+            $('.skin-flat input').iCheck({
+                checkboxClass: 'icheckbox_flat-red',
+                radioClass: 'iradio_flat-red'
+            });
+            $('.skin-line input').each(function () {
+                var self = $(this),
+                        label = self.next(),
+                        label_text = label.text();
+
+                label.remove();
+                self.iCheck({
+                    checkboxClass: 'icheckbox_line-blue',
+                    radioClass: 'iradio_line-blue',
+                    insert: '<div class="icheck_line-icon"></div>' + label_text
+                });
+            });
+            //Switch Button
+
+            $('.make-switch').bootstrapSwitch('setSizeClass', 'switch-small');
+        });
+    </script>
+</div>
+<!--  END OF PAPER WRAP -->
+<!-- RIGHT SLIDER CONTENT -->
